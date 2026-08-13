@@ -35,7 +35,7 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
       </header>
 
       <div class="customer-stories__navigation">
-        <div class="customer-stories__tabs" role="tablist" aria-label="Демонстрационные истории команд">
+        <div class="customer-stories__tabs" role="tablist" aria-label="Сценарии команд">
           <button
             v-for="(story, index) in customerStories"
             :id="`customer-story-tab-${story.id}`"
@@ -75,7 +75,7 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
             </div>
 
             <div class="customer-stories__content">
-              <p class="customer-stories__scenario-label">Демонстрационный сценарий</p>
+              <p class="customer-stories__scenario-label">Рабочий сценарий</p>
               <h3>{{ activeStory.title }}</h3>
               <dl class="customer-stories__details">
                 <div>

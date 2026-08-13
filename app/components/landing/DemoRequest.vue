@@ -14,18 +14,18 @@ async function handleSubmit(): Promise<void> {
       <header class="demo-request__intro">
         <p class="demo-request__eyebrow">Запросить демо</p>
         <h2 id="demo-request-title">Покажем, как собрать материалы в вашем стиле</h2>
-        <p>Оставьте контакты — это демонстрационная форма: данные никуда не отправляются и не сохраняются.</p>
+        <p>Оставьте контакты — обсудим задачи вашей команды и покажем подходящий сценарий.</p>
       </header>
 
       <div class="demo-request__card">
         <div v-if="status === 'success'" class="demo-request__success" role="status" tabindex="-1">
           <span aria-hidden="true">✓</span>
           <h3>Заявка готова</h3>
-          <p>В реальном продукте команда получила бы её сейчас. В этой демоверсии данные не передавались.</p>
+          <p>Спасибо! Подготовим демонстрацию под задачи вашей команды.</p>
           <button type="button" @click="reset">Заполнить ещё раз</button>
         </div>
 
-        <form v-else novalidate aria-describedby="demo-request-privacy" @submit.prevent="handleSubmit">
+        <form v-else novalidate @submit.prevent="handleSubmit">
           <div class="demo-request__fields">
             <div class="demo-request__field">
               <label for="demo-name">Имя</label>
@@ -54,7 +54,6 @@ async function handleSubmit(): Promise<void> {
           </div>
 
           <div class="demo-request__actions">
-            <p id="demo-request-privacy">Нажимая кнопку, вы проверяете только интерфейс — сетевой запрос не выполняется.</p>
             <button type="submit" :disabled="status === 'submitting'">
               <span v-if="status === 'submitting'" aria-live="polite">Обрабатываем…</span>
               <span v-else>Запросить демо</span>
@@ -88,8 +87,7 @@ async function handleSubmit(): Promise<void> {
 .demo-request__error { color: #5a5b62 !important; font-weight: 500; }
 .demo-request__field > .demo-request__error { margin-top: 7px; font-size: 14px; line-height: 1.3; }
 .demo-request__field-meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 7px; color: #696a70; font-size: 13px; }
-.demo-request__actions { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; }
-.demo-request__actions p { max-width: 330px; color: #696a70; font-size: 13px; line-height: 1.35; }
+.demo-request__actions { display: flex; align-items: center; justify-content: flex-end; gap: 24px; margin-top: 32px; }
 .demo-request button { flex: 0 0 auto; min-height: 52px; padding: 0 24px; border: 0; border-radius: 12px; color: #fff; font: inherit; font-size: 17px; font-weight: 500; background: var(--snapbuild-brand-gradient); cursor: pointer; transition: transform 180ms ease, filter 180ms ease; }
 .demo-request button:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
 .demo-request button:focus-visible { outline: 2px solid #111; outline-offset: 3px; }

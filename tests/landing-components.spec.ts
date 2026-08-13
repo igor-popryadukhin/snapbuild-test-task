@@ -25,7 +25,7 @@ describe('landing interactions', () => {
     expect(wrapper.get('button[type="submit"]').attributes('disabled')).toBeDefined()
 
     await vi.runAllTimersAsync()
-    expect(wrapper.get('[role="status"]').text()).toContain('данные не передавались')
+    expect(wrapper.get('[role="status"]').text()).toContain('Подготовим демонстрацию')
     await wrapper.get('[role="status"] button').trigger('click')
     expect(wrapper.find('form').exists()).toBe(true)
     vi.useRealTimers()
@@ -70,7 +70,7 @@ describe('landing interactions', () => {
     const tabs = wrapper.findAll('[role="tab"]')
 
     expect(tabs).toHaveLength(3)
-    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Демонстрационный сценарий')
+    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Рабочий сценарий')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
 
