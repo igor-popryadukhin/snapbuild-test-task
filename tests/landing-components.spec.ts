@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import LandingHeader from '../app/components/landing/Header.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
 import LandingRoleScenarios from '../app/components/landing/RoleScenarios.vue'
+import LandingCustomerStories from '../app/components/landing/CustomerStories.vue'
 import LandingFaq from '../app/components/landing/Faq.vue'
 
 describe('landing interactions', () => {
@@ -35,6 +36,25 @@ describe('landing interactions', () => {
     expect(wrapper.get('[role="tabpanel"] h3').text()).toContain('дизайн-систему')
 
     await tabs[1]!.trigger('keydown', { key: 'ArrowRight' })
+    expect(tabs[2]!.attributes('aria-selected')).toBe('true')
+    expect(document.activeElement).toBe(tabs[2]!.element)
+    wrapper.unmount()
+  })
+
+  it('presents illustrative customer stories with accessible controls', async () => {
+    const wrapper = await mountSuspended(LandingCustomerStories, { attachTo: document.body })
+    const tabs = wrapper.findAll('[role="tab"]')
+
+    expect(tabs).toHaveLength(3)
+    expect(wrapper.text()).toContain('не являются отзывами реальных клиентов')
+    expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
+    expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
+
+    await wrapper.get('[aria-label="Следующая история"]').trigger('click')
+    expect(tabs[1]!.attributes('aria-selected')).toBe('true')
+    expect(wrapper.get('[aria-live="polite"]').text()).toContain('2 / 3')
+
+    await tabs[1]!.trigger('keydown', { key: 'End' })
     expect(tabs[2]!.attributes('aria-selected')).toBe('true')
     expect(document.activeElement).toBe(tabs[2]!.element)
     wrapper.unmount()
