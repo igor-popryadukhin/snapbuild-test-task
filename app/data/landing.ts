@@ -1,4 +1,48 @@
-import type { ImplementationStep, RoleScenario, UseCaseTab } from '~/types/landing'
+import type { EffectComparison, EffectMetric, ImplementationStep, RoleScenario, UseCaseTab } from '~/types/landing'
+
+/** Illustrative metrics for a team producing recurring campaign materials. */
+export const effectMetrics = [
+  {
+    id: 'speed',
+    value: '6×',
+    label: 'быстрее первый вариант',
+    context: 'С 3 рабочих дней до 4 часов на комплект материалов',
+  },
+  {
+    id: 'consistency',
+    value: '90%',
+    label: 'материалов без правок по бренду',
+    context: '9 из 10 макетов проходят первичную проверку дизайн-системы',
+  },
+  {
+    id: 'scale',
+    value: '24',
+    label: 'формата из одной идеи',
+    context: 'Версии для каналов и сегментов без ручной пересборки каждого макета',
+  },
+] as const satisfies readonly EffectMetric[]
+
+/** Illustrative workflow comparison paired with the metrics above. */
+export const effectComparisons = [
+  {
+    id: 'draft',
+    criterion: 'Первый вариант',
+    before: 'Бриф, очередь и 3 рабочих дня',
+    after: 'Готовый черновик за 4 часа',
+  },
+  {
+    id: 'brand-review',
+    criterion: 'Контроль бренда',
+    before: 'Ручная проверка каждого макета',
+    after: 'Правила дизайн-системы применяются при сборке',
+  },
+  {
+    id: 'adaptation',
+    criterion: 'Адаптация',
+    before: 'Каждый формат собирается отдельно',
+    after: '24 версии из одной согласованной идеи',
+  },
+] as const satisfies readonly EffectComparison[]
 
 /** Ordered implementation phases shown without requiring client-side interaction. */
 export const implementationSteps = [

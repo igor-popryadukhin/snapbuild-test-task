@@ -42,11 +42,12 @@ import { implementationSteps } from '~/data/landing'
 <style scoped lang="scss">
 .implementation { box-sizing: border-box; width: 100%; max-width: calc(100vw - 16px); padding: clamp(64px, 7vw, 100px) max(16px, 2.78vw); overflow: hidden; border-radius: 16px; color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background-color: #fff; background-image: linear-gradient(157deg, #fff 10%, #ffd1b9 37%, #ffabbc 54%, #ffb8eb 69%, #d7d9ff 87%, #fff 104%); }
 .implementation__inner { --implementation-rail: clamp(96px, 9.5vw, 136px); box-sizing: border-box; width: min(100%, 1360px); margin: 0 auto; }
-.implementation__header { display: grid; grid-template-columns: var(--implementation-rail) minmax(0, 1.25fr) minmax(260px, 1fr); gap: 32px; align-items: start; margin-bottom: clamp(48px, 6vw, 84px); }
+.implementation__header { display: grid; grid-template-areas: "label intro" "title intro"; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr); gap: 24px clamp(40px, 7vw, 108px); align-items: end; margin-bottom: clamp(48px, 6vw, 84px); }
 .implementation__label, .implementation__title, .implementation__intro, h3, p, dl, dd { margin: 0; }
 .implementation__label, dt { color: rgba(0, 0, 0, .58); font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
-.implementation__title { max-width: 600px; font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
-.implementation__intro { max-width: 430px; color: #5a5b62; font-size: 18px; line-height: 1.45; }
+.implementation__label { grid-area: label; }
+.implementation__title { grid-area: title; max-width: 600px; font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
+.implementation__intro { grid-area: intro; max-width: 430px; padding-bottom: 4px; color: #5a5b62; font-size: 18px; line-height: 1.45; }
 .implementation__timeline { margin: 0; padding: 0; overflow: hidden; border: 1px solid rgba(255, 255, 255, .64); border-radius: 20px; list-style: none; background: rgba(255, 255, 255, .56); backdrop-filter: blur(24px); }
 .implementation__step { display: grid; grid-template-columns: var(--implementation-rail) minmax(0, 1fr); gap: 32px; }
 .implementation__marker { position: relative; display: flex; align-items: center; justify-content: center; padding: 30px 0; }
@@ -70,8 +71,7 @@ import { implementationSteps } from '~/data/landing'
 
 @media (max-width: 1023px) {
   .implementation__inner { --implementation-rail: clamp(88px, 12vw, 112px); }
-  .implementation__header { grid-template-columns: var(--implementation-rail) minmax(0, 1fr); }
-  .implementation__intro { grid-column: 2; }
+  .implementation__header { grid-template-columns: minmax(0, 1.4fr) minmax(240px, .8fr); gap: 24px 40px; }
   .implementation__step { grid-template-columns: var(--implementation-rail) minmax(0, 1fr); }
   .implementation__content { grid-template-columns: 1fr; gap: 28px; padding-right: 24px; }
   .implementation__meta { border-top: 1px solid rgba(0, 0, 0, .1); border-left: 0; }

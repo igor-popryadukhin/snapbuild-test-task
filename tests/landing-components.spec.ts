@@ -4,6 +4,7 @@ import LandingHeader from '../app/components/landing/Header.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
 import LandingRoleScenarios from '../app/components/landing/RoleScenarios.vue'
 import LandingImplementation from '../app/components/landing/Implementation.vue'
+import LandingMeasurableEffect from '../app/components/landing/MeasurableEffect.vue'
 import LandingFaq from '../app/components/landing/Faq.vue'
 
 describe('landing interactions', () => {
@@ -59,5 +60,15 @@ describe('landing interactions', () => {
     expect(steps[0]!.text()).toContain('Карта сценариев и план внедрения')
     expect(steps[4]!.text()).toContain('Масштабирование без потери контроля')
     expect(wrapper.get('.implementation__footer a').attributes('href')).toBe('https://t.me/ochen_darya')
+  })
+
+  it('labels measurable-effect values as examples and keeps comparison content semantic', async () => {
+    const wrapper = await mountSuspended(LandingMeasurableEffect)
+
+    expect(wrapper.findAll('.measurable-effect__metric')).toHaveLength(3)
+    expect(wrapper.get('.measurable-effect__intro').text()).toContain('пример')
+    expect(wrapper.findAll('.measurable-effect__row')).toHaveLength(3)
+    expect(wrapper.get('.measurable-effect__comparison').text()).toContain('До и со Снэпбилдом')
+    expect(wrapper.text()).toContain('24 версии из одной согласованной идеи')
   })
 })

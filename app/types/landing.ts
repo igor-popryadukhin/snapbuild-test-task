@@ -36,3 +36,19 @@ export interface ImplementationStep {
   readonly description: string
   readonly result: string
 }
+
+/** A modelled outcome used to explain how a team can measure Snapbuild adoption. */
+export interface EffectMetric {
+  readonly id: string
+  readonly value: string
+  readonly label: string
+  readonly context: string
+}
+
+/** A modelled before-and-after change in a content-production workflow. */
+export interface EffectComparison {
+  readonly id: string
+  readonly criterion: string
+  readonly before: string
+  readonly after: string
+}

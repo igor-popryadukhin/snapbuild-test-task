@@ -14,6 +14,7 @@ useOriginalReveals(landingRoot)
     <LandingUseCases />
     <LandingRoleScenarios />
     <LandingImplementation />
+    <LandingMeasurableEffect />
     <LandingComparison />
     <LandingSecurity />
     <LandingRoadmap />
