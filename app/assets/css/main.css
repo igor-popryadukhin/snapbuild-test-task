@@ -1,14 +1,22 @@
 :root {
-  --ink: #121212;
-  --muted: #686868;
-  --paper: #f5f4ef;
+  /* Source: snapbuild.ru design audit, 2026-08-13. */
+  --ink: #000;
+  --muted: #5a5b62;
+  --paper: #f5f5f6;
   --white: #fff;
-  --acid: #d8ff36;
-  --violet: #8f78ff;
-  --line: rgb(18 18 18 / 14%);
-  --radius-sm: 14px;
-  --radius-lg: 32px;
-  --container: 1240px;
+  --surface: #fafafa;
+  --surface-dark: #141414;
+  --accent-coral: #ff6d3d;
+  --accent-pink: #ff6ca7;
+  --accent-violet: #bb6dff;
+  --accent-aurora: linear-gradient(157deg, #fff 17.71%, #ffcdb3 43.16%, #ffa4b6 58.2%, #ffb2e9 73.32%, #d4d6ff 90.8%, #fff 103.16%);
+  --acid: var(--accent-coral);
+  --violet: var(--accent-violet);
+  --line: rgb(0 0 0 / 14%);
+  --radius-control: 8px;
+  --radius-sm: 16px;
+  --radius-lg: 27px;
+  --container: 1312px;
 }
 
 * { box-sizing: border-box; }
