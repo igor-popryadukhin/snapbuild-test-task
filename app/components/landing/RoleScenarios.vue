@@ -83,13 +83,14 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
 
 <style scoped lang="scss">
 .role-scenarios { padding: clamp(56px, 7vw, 100px) max(16px, 2.78vw); color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background: #f5f5f6; }
-.role-scenarios__inner { width: min(100%, 1360px); margin: 0 auto; }
-.role-scenarios__header { display: grid; grid-template-columns: 1fr 1.3fr 0.8fr; align-items: start; gap: 32px; margin-bottom: clamp(40px, 5vw, 72px); }
+.role-scenarios__inner { width: 100%; margin: 0 auto; }
+.role-scenarios__header { display: grid; grid-template-areas: "label intro" "title intro"; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); align-items: end; gap: 24px clamp(40px, 7vw, 108px); margin-bottom: clamp(40px, 5vw, 72px); }
 .role-scenarios__label, .role-scenarios__intro, .role-scenarios__eyebrow, h3, h4, p { margin: 0; }
 .role-scenarios__label, .role-scenarios__eyebrow { color: #696a70; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
+.role-scenarios__label { grid-area: label; }
 .role-scenarios__eyebrow { width: fit-content; color: transparent; background: var(--snapbuild-brand-gradient); background-clip: text; -webkit-background-clip: text; }
-.role-scenarios__title { margin: 0; color: #111; font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
-.role-scenarios__intro { max-width: 330px; color: #5a5b62; font-size: 18px; line-height: 1.4; }
+.role-scenarios__title { grid-area: title; margin: 0; color: #111; font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
+.role-scenarios__intro { grid-area: intro; max-width: 330px; padding-bottom: 4px; color: #5a5b62; font-size: 18px; line-height: 1.4; }
 .role-scenarios__tabs { display: grid; grid-template-columns: repeat(4, 1fr); }
 .role-scenarios__tab { display: flex; justify-content: space-between; gap: 16px; padding: 20px 16px; border: 0; border-top: 1px solid #d9d9da; border-radius: 0 !important; color: #5a5b62; font: inherit; font-size: 18px; text-align: left; background: #fafafa; cursor: pointer; transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease; }
 .role-scenarios__tab:first-child { border-radius: 10px 0 0 !important; }
@@ -111,8 +112,7 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
 .role-scenarios__steps p { max-width: 560px; color: #5a5b62; font-size: 17px; line-height: 1.45; }
 
 @media (max-width: 1023px) {
-  .role-scenarios__header { grid-template-columns: 1fr 2fr; }
-  .role-scenarios__intro { grid-column: 2; }
+  .role-scenarios__header { grid-template-columns: minmax(0, 1.35fr) minmax(240px, .75fr); gap: 24px 40px; }
   .role-scenarios__panel-shell, .role-scenarios__panel { min-height: 720px; }
   .role-scenarios__panel { grid-template-columns: 1fr; }
   .role-scenarios__summary { border-right: 0; border-bottom: 1px solid #dedede; }
