@@ -16,6 +16,8 @@ export interface UseCaseTab {
 /** A role-specific workflow presented in the scenarios section. */
 export interface RoleScenario {
   readonly id: string
+  readonly image: string
+  readonly imageAlt: string
   readonly role: string
   readonly eyebrow: string
   readonly title: string

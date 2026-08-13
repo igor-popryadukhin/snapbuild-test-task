@@ -48,6 +48,8 @@ export const implementationSteps = [
 export const roleScenarios = [
   {
     id: 'marketing',
+    image: 'assets/images/role-marketing.webp',
+    imageAlt: 'Визуализация маркетинговой кампании: лендинг и согласованные материалы для разных каналов',
     role: 'Маркетинг',
     eyebrow: 'Запуск кампании',
     title: 'Собрать лендинг и креативы под новый сегмент',
@@ -58,6 +60,8 @@ export const roleScenarios = [
   },
   {
     id: 'design',
+    image: 'assets/images/role-design.webp',
+    imageAlt: 'Визуализация дизайн-системы с компонентами, палитрой и согласованными форматами',
     role: 'Дизайн',
     eyebrow: 'Контроль бренда',
     title: 'Масштабировать дизайн-систему без ручной рутины',
@@ -68,6 +72,8 @@ export const roleScenarios = [
   },
   {
     id: 'sales',
+    image: 'assets/images/role-sales.webp',
+    imageAlt: 'Визуализация персонального предложения, собранного из контекста клиента и выбранных кейсов',
     role: 'Продажи',
     eyebrow: 'Подготовка встречи',
     title: 'Персонализировать предложение для клиента',
@@ -78,6 +84,8 @@ export const roleScenarios = [
   },
   {
     id: 'product',
+    image: 'assets/images/role-product.webp',
+    imageAlt: 'Визуализация продуктовой гипотезы, превращённой в связанный интерактивный прототип',
     role: 'Продукт',
     eyebrow: 'Проверка гипотезы',
     title: 'Показать идею до начала разработки',

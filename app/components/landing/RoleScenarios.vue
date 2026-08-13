@@ -5,6 +5,7 @@ import { roleScenarios } from '~/data/landing'
 
 const { activeIndex, select, selectFromKeyboard } = useScenarioTabs(roleScenarios.length)
 const activeScenario = computed(() => roleScenarios[activeIndex.value]!)
+const activeScenarioImage = computed(() => useAssetUrl(activeScenario.value.image))
 
 /** Moves selection and DOM focus together for keyboard tab navigation.
  * @param event Keyboard event raised by a role tab.
@@ -58,10 +59,15 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
           <div class="role-scenarios__summary">
             <p class="role-scenarios__eyebrow">{{ activeScenario.eyebrow }}</p>
             <h3>{{ activeScenario.title }}</h3>
-            <div class="role-scenarios__visual" aria-hidden="true">
-              <span class="role-scenarios__orb" />
-              <span class="role-scenarios__prompt">{{ activeScenario.role }}</span>
-              <span class="role-scenarios__output">Готово</span>
+            <div class="role-scenarios__visual">
+              <img
+                :src="activeScenarioImage"
+                :alt="activeScenario.imageAlt"
+                width="1400"
+                height="788"
+                loading="lazy"
+                decoding="async"
+              >
             </div>
           </div>
 
@@ -97,10 +103,7 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
 .role-scenarios__summary { display: flex; flex-direction: column; padding: clamp(28px, 3.4vw, 50px); border-right: 1px solid #dedede; }
 .role-scenarios__summary h3 { max-width: 520px; margin-top: 18px; font-size: clamp(32px, 3.2vw, 46px); font-weight: 500; line-height: 1.05; letter-spacing: -.03em; }
 .role-scenarios__visual { position: relative; flex: 1; min-height: 190px; margin-top: 40px; overflow: hidden; border-radius: 20px; background: #f1f1f2; }
-.role-scenarios__orb { position: absolute; width: 240px; height: 240px; right: -35px; bottom: -70px; border-radius: 50%; background: var(--scenario-accent); filter: blur(2px); }
-.role-scenarios__prompt, .role-scenarios__output { position: absolute; padding: 10px 14px; border-radius: 10px; background: #fff; box-shadow: 0 10px 35px rgba(0,0,0,.1); }
-.role-scenarios__prompt { left: 24px; top: 30px; }
-.role-scenarios__output { right: 28px; bottom: 32px; color: #111; background: var(--scenario-accent); }
+.role-scenarios__visual img { width: 100%; height: 100%; object-fit: cover; }
 .role-scenarios__steps { display: grid; grid-template-rows: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
 .role-scenarios__steps li { padding: clamp(26px, 3vw, 44px); border-bottom: 1px solid #dedede; }
 .role-scenarios__steps li:last-child { border-bottom: 0; }
