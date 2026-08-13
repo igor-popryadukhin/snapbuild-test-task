@@ -1187,10 +1187,6 @@
   }
 
   @media (max-width: 47.99rem) {
-    .cards [data-cms-key="cards.title"], .cards [data-cms-key="cards.description"], .job-board [data-cms-key="job-board.title"], .job-board [data-cms-key="job-board.subtitle"] {
-      text-align: center;
-      margin-inline: auto;
-    }
   }
 
   label {
@@ -7824,182 +7820,6 @@
 	padding-inline: var(--avito-career-footer-padding-inline);
 }
 
-.footer[data-section="footer/columns"] .container {
-	padding-inline: var(--footer-columns-padding-inline);
-}
-
-img[data-cms-logo] {
-	max-height: var(--logo-max-height, 2rem);
-	width: auto;
-}
-
-:where([data-section-theme]) {
-	color: var(--st-text);
-	background-color: var(--st-bg);
-}
-
-[data-section-theme] {
-
-	--section-bg: var(--st-bg);
-	--section-border-color: var(--st-border);
-	--container-bg: var(--st-bg);
-	--container-bg-image: none;
-	--card-bg-image: none;
-
-	--text-display-xl-color: var(--st-text);
-	--text-display-l-color: var(--st-text);
-
-	--h1-color: var(--st-text);
-	--h2-color: var(--st-text);
-	--h3-color: var(--st-text);
-	--h4-color: var(--st-text);
-	--h5-color: var(--st-text);
-	--h6-color: var(--st-text);
-
-	--body-color: var(--st-text);
-
-	--text-lead-color: var(--st-text-secondary);
-	--text-muted-color: var(--st-text-secondary);
-	--text-small-color: var(--st-text-secondary);
-	--text-caption-color: var(--st-text-secondary);
-	--text-quote-color: var(--st-text-secondary);
-	--text-overline-color: var(--st-text-secondary);
-
-	--text-name-color: var(--st-text);
-	--text-label-color: var(--st-text);
-	--text-price-color: var(--st-text);
-
-	--text-title-accent-color: var(--st-accent);
-	--text-link-color: var(--st-accent);
-	--text-link-color-hover: var(--st-accent);
-
-	--text-nav-color: var(--st-text-secondary);
-	--text-nav-color-hover: var(--st-text);
-	--text-nav-color-active: var(--st-text);
-	--nav-link-color: var(--st-text-secondary);
-	--nav-link-color-hover: var(--st-text);
-	--nav-link-color-active: var(--st-text);
-	--navbar-toggle-color: var(--st-text);
-
-	--btn-bg: var(--st-btn-bg);
-	--btn-color: var(--st-btn-color);
-	--btn-border-color: var(--st-border);
-	--btn-bg-image: none;
-
-	--btn-primary-bg: var(--st-btn-bg);
-	--btn-primary-bg-hover: var(--st-btn-bg);
-	--btn-primary-color: var(--st-btn-color);
-	--btn-primary-color-hover: var(--st-btn-color);
-	--btn-primary-bg-image: none;
-
-	--btn-outline-color: var(--st-text);
-	--btn-outline-border-color: var(--st-border);
-	--btn-outline-color-hover: var(--st-text);
-	--btn-outline-bg-hover: var(--st-surface);
-
-	--btn-light-bg: var(--st-surface);
-	--btn-light-bg-hover: var(--st-surface);
-	--btn-light-color: var(--st-text);
-	--btn-light-color-hover: var(--st-text);
-
-	--btn-ghost-color: var(--st-text);
-	--btn-ghost-bg-hover: var(--st-surface);
-
-	--card-bg: var(--st-surface);
-	--card-color: var(--st-text);
-	--card-filled-bg: var(--st-surface);
-	--card-filled-color: var(--st-text);
-	--card-elevated-color: var(--st-text);
-	--card-border-color: var(--st-border);
-
-	--chip-bg: var(--st-surface);
-	--chip-color: var(--st-text);
-	--chip-border-color: var(--st-border);
-	--chip-primary-bg: var(--st-accent);
-	--chip-primary-color: var(--st-btn-color);
-
-	--tab-color: var(--st-text-secondary);
-	--tab-color-active: var(--st-text);
-	--tab-border-color: var(--st-border);
-	--tab-border-color-active: var(--st-accent);
-	--tab-border-color-hover: var(--st-text-secondary);
-
-	--icon-box-color: var(--st-text);
-	--icon-box-light-bg: var(--st-surface);
-	--icon-box-light-color: var(--st-accent);
-	--icon-box-ghost-bg: var(--st-surface);
-	--icon-box-ghost-color: var(--st-text);
-	--icon-box-outline-color: var(--st-accent);
-	--icon-box-outline-border-color: var(--st-border);
-	--icon-box-primary-bg: var(--st-accent);
-	--icon-box-primary-color: var(--st-btn-color);
-
-	--accordion-trigger-color: var(--st-text);
-	--accordion-content-color: var(--st-text-secondary);
-	--accordion-bg: var(--st-surface);
-	--accordion-border-color: var(--st-border);
-	--accordion-divider-color: var(--st-border);
-	--accordion-icon-color: var(--st-text-secondary);
-	--accordion-icon-color-open: var(--st-text);
-	--accordion-icon-bg: transparent;
-	--accordion-icon-bg-open: transparent;
-
-	--accordion-card-bg: var(--st-surface);
-	--accordion-card-icon-color: var(--st-text-secondary);
-	--accordion-card-icon-color-open: var(--st-text);
-
-	--accordion-outline-border-color: var(--st-border);
-	--accordion-outline-bg: transparent;
-	--accordion-outline-icon-color: var(--st-text-secondary);
-	--accordion-outline-icon-color-open: var(--st-text);
-
-	--input-border-color: var(--st-border);
-	--input-color: var(--st-text);
-	--input-bg: var(--st-surface);
-	--input-bg-hover: var(--st-surface);
-	--input-border-color-hover: var(--st-border);
-	--input-bg-focus: var(--st-surface);
-	--input-border-color-focus: var(--st-accent);
-	--input-autofill-bg: var(--st-surface);
-	--input-autofill-color: var(--st-text);
-
-	--textarea-border-color: var(--st-border);
-	--textarea-color: var(--st-text);
-	--textarea-bg: var(--st-surface);
-	--textarea-bg-hover: var(--st-surface);
-	--textarea-border-color-hover: var(--st-border);
-	--textarea-bg-focus: var(--st-surface);
-	--textarea-border-color-focus: var(--st-accent);
-	--textarea-autofill-bg: var(--st-surface);
-	--textarea-autofill-color: var(--st-text);
-
-	--label-color: var(--st-text);
-
-	--step-indicator-color: var(--st-text);
-	--step-indicator-bg: var(--st-surface);
-
-	--divider-color: var(--st-border);
-}
-
-.header,
-header[data-cms-section^="header."] {
-	--section-padding-block: 0;
-	--section-position: relative;
-	--section-margin-top: 0;
-	--container-overflow: visible;
-	--header-bg: rgba(255, 255, 255, 0.72);
-	--header-backdrop-blur: 12px;
-	--header-border-color: rgba(0, 0, 0, 0.06);
-	z-index: 10;
-	width: auto;
-
-		--header-container-padding-block: calc(16 / 19.2 * 1vw);
-	@media (max-width: 767px) {
-		--header-container-padding-block: calc(12 / 3.75 * 1vw);
-	}
-
-			}
-
 .header-container {
 	position: fixed;
 	top: 0;
@@ -8067,23 +7887,6 @@ section {
 		--accordion-card-padding-block: 1.25rem;
 	}
 }
-
-.footer,
-footer[data-cms-section^="footer."] {
-	--container-bg: transparent;
-		--container-padding-inline: calc(60 / 19.2 * 1vw);
-	@media (max-width: 767px) {
-		--container-padding-inline: calc(45 / 3.75 * 1vw);
-	}
-
-		--container-padding-block: unset;
-
-		--footer-container-padding-block-end: calc(20 / 19.2 * 1vw);
-	@media (max-width: 767px) {
-		--footer-container-padding-block-end: calc(10 / 3.75 * 1vw);
-	}
-
-									}
 
 .footer-container {
 	display: var(--container-display);
@@ -9352,21 +9155,6 @@ footer[data-cms-section^="footer."] {
     .dds-accordion-answer { font-size: calc(14 / 3.75 * 1vw); }
     .dds-accordion-state:checked ~ .dds-accordion-panel { margin-top: calc(12 / 3.75 * 1vw); }
     .dds-accordion-icon { width: 20px; height: 20px; }
-  }
-
-  .dds-launch[data-cms-section="cta.launch"] {
-    position: relative;
-    overflow: hidden;
-    border-radius: calc(32 / 14.4 * 1vw);
-    background-color: #ffffff;
-    background-image: linear-gradient(157deg, #ffffff 11%, #ffcdb3 33%, #ffa4b6 53%, #ffb2e9 67%, #d4d6ff 90%, #d4d6ff 97%, #ffffff 100%);
-    color: #000000;
-    font-family: var(--font-primary, "TT Commons Pro", sans-serif);
-    padding: calc(96 / 14.4 * 1vw) 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .dds-launch-dust {
     position: absolute;

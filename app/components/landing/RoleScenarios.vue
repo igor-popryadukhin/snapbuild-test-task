@@ -1,22 +1,16 @@
 <!-- Shows role-specific Snapbuild workflows in an accessible, height-stable tab panel. -->
 <script setup lang="ts">
-import { computed, nextTick } from 'vue'
+import { computed } from 'vue'
 import { roleScenarios } from '~/data/landing'
 
-const { activeIndex, select, selectFromKeyboard } = useScenarioTabs(roleScenarios.length)
+const { activeIndex, select } = useScenarioTabs(roleScenarios.length)
 const activeScenario = computed(() => roleScenarios[activeIndex.value]!)
 const activeScenarioImage = computed(() => useAssetUrl(activeScenario.value.image))
-
-/** Moves selection and DOM focus together for keyboard tab navigation.
- * @param event Keyboard event raised by a role tab.
- * @param index Zero-based index of the focused tab.
- */
-async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<void> {
-  const nextIndex = selectFromKeyboard(event, index)
-  if (nextIndex === null) return
-  await nextTick()
-  document.getElementById(`scenario-tab-${roleScenarios[nextIndex]!.id}`)?.focus()
-}
+const scenarioTabs = roleScenarios.map(scenario => ({ id: scenario.id, label: scenario.role }))
+const activeScenarioId = computed({
+  get: () => activeScenario.value.id,
+  set: (id: string) => select(roleScenarios.findIndex(scenario => scenario.id === id)),
+})
 </script>
 
 <template>
@@ -28,24 +22,7 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
         <p class="role-scenarios__intro">От первого брифа до готового материала — каждый участник работает со своей задачей, а бренд остаётся целостным.</p>
       </header>
 
-      <div class="role-scenarios__tabs" role="tablist" aria-label="Роли в команде">
-        <button
-          v-for="(scenario, index) in roleScenarios"
-          :id="`scenario-tab-${scenario.id}`"
-          :key="scenario.id"
-          class="role-scenarios__tab"
-          :class="{ 'role-scenarios__tab--active': activeIndex === index }"
-          type="button"
-          role="tab"
-          :aria-selected="activeIndex === index"
-          :aria-controls="`scenario-panel-${scenario.id}`"
-          :tabindex="activeIndex === index ? 0 : -1"
-          @click="select(index)"
-          @keydown="handleTabKeydown($event, index)"
-        >
-          <span>{{ scenario.role }}</span>
-        </button>
-      </div>
+      <UiTabList v-model="activeScenarioId" class="role-scenarios__tabs" :items="scenarioTabs" label="Роли в команде" panel-id-prefix="scenario" tab-class="role-scenarios__tab" active-class="role-scenarios__tab--active" />
 
       <div class="role-scenarios__panel-shell">
         <article
@@ -80,60 +57,3 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
     </div>
   </section>
 </template>
-
-<style scoped lang="scss">
-.role-scenarios { padding: clamp(56px, 7vw, 100px) max(16px, 2.78vw); color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background: #f5f5f6; }
-.role-scenarios__inner { width: 100%; margin: 0 auto; }
-.role-scenarios__header { display: grid; grid-template-areas: "label intro" "title intro"; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); align-items: end; gap: 24px clamp(40px, 7vw, 108px); margin-bottom: clamp(40px, 5vw, 72px); }
-.role-scenarios__label, .role-scenarios__intro, .role-scenarios__eyebrow, h3, h4, p { margin: 0; }
-.role-scenarios__label, .role-scenarios__eyebrow { color: #696a70; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
-.role-scenarios__label { grid-area: label; }
-.role-scenarios__eyebrow { width: fit-content; color: transparent; background: var(--snapbuild-brand-gradient); background-clip: text; -webkit-background-clip: text; }
-.role-scenarios__title { grid-area: title; margin: 0; color: #111; font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
-.role-scenarios__intro { grid-area: intro; max-width: 330px; padding-bottom: 4px; color: #5a5b62; font-size: 18px; line-height: 1.4; }
-.role-scenarios__tabs { display: grid; grid-template-columns: repeat(4, 1fr); }
-.role-scenarios__tab { display: flex; justify-content: space-between; gap: 16px; padding: 20px 16px; border: 0; border-top: 1px solid #d9d9da; border-radius: 0 !important; color: #5a5b62; font: inherit; font-size: 18px; text-align: left; background: #fafafa; cursor: pointer; transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease; }
-.role-scenarios__tab:first-child { border-radius: 10px 0 0 !important; }
-.role-scenarios__tab:last-child { border-radius: 0 10px 0 0 !important; }
-.role-scenarios__tab:hover { color: #111; background: #fff; }
-.role-scenarios__tab:focus-visible { position: relative; z-index: 1; outline: 2px solid #111; outline-offset: -3px; }
-.role-scenarios__tab--active { border-top-color: #ff6d3d; color: #111; background: #fff; }
-.role-scenarios__tab--active:hover { color: #111; background: #fff; }
-.role-scenarios__panel-shell { min-height: 530px; }
-.role-scenarios__panel { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); min-height: 530px; border: 1px solid #dedede; border-top: 0; background: #fff; color: #111; }
-.role-scenarios__summary { display: flex; flex-direction: column; padding: clamp(28px, 3.4vw, 50px); border-right: 1px solid #dedede; }
-.role-scenarios__summary h3 { max-width: 520px; margin-top: 18px; color: #111; font-size: clamp(32px, 3.2vw, 46px); font-weight: 500; line-height: 1.05; letter-spacing: -.03em; }
-.role-scenarios__visual { position: relative; flex: 1; min-height: 190px; margin-top: 40px; overflow: hidden; border-radius: 20px; background: #f1f1f2; }
-.role-scenarios__visual img { width: 100%; height: 100%; object-fit: cover; }
-.role-scenarios__steps { display: grid; grid-template-rows: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
-.role-scenarios__steps li { padding: clamp(26px, 3vw, 44px); border-bottom: 1px solid #dedede; }
-.role-scenarios__steps li:last-child { border-bottom: 0; }
-.role-scenarios__steps h4 { margin-bottom: 8px; color: #111; font-size: 22px; font-weight: 500; }
-.role-scenarios__steps p { max-width: 560px; color: #5a5b62; font-size: 17px; line-height: 1.45; }
-
-@media (max-width: 1023px) {
-  .role-scenarios__header { grid-template-columns: minmax(0, 1.35fr) minmax(240px, .75fr); gap: 24px 40px; }
-  .role-scenarios__panel-shell, .role-scenarios__panel { min-height: 720px; }
-  .role-scenarios__panel { grid-template-columns: 1fr; }
-  .role-scenarios__summary { border-right: 0; border-bottom: 1px solid #dedede; }
-  .role-scenarios__visual { flex: none; height: 190px; }
-}
-
-@media (max-width: 767px) {
-  .role-scenarios__header { display: block; }
-  .role-scenarios__label { margin-bottom: 24px; }
-  .role-scenarios__intro { margin-top: 20px; font-size: 16px; }
-  .role-scenarios__tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
-  .role-scenarios__tabs::-webkit-scrollbar { display: none; }
-  .role-scenarios__tab { flex: 0 0 148px; min-width: 148px; }
-  .role-scenarios__panel-shell, .role-scenarios__panel { min-height: 830px; }
-  .role-scenarios__summary h3 { font-size: 32px; }
-  .role-scenarios__visual { min-height: 170px; margin-top: 28px; }
-  .role-scenarios__steps li { padding: 24px 20px; }
-  .role-scenarios__steps p { font-size: 16px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .role-scenarios__tab { transition: none; }
-}
-</style>

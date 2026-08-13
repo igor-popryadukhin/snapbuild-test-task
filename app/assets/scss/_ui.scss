@@ -1,0 +1,33 @@
+@use 'settings' as *;
+
+.ui-brand-logo { display: inline-flex; }
+.ui-brand-logo img, .dds-marquee-image, .ui-disclosure-item__icon { display: block; }
+.ui-disclosure-item__icon { object-fit: fill; }
+.ui-disclosure-item__answer { white-space: pre-line; }
+.ui-external-cta { display: flex; color: inherit; text-decoration: none; }
+.dds-footer-link--block { display: block; color: inherit; text-decoration: none; }
+.dds-footer-link--plain { text-decoration: none; text-transform: none; }
+.dds-footer-email { color: inherit; font: 500 14px/20px var(--font-primary, sans-serif); text-decoration: none; }
+
+#header.is-scrolled .dds-main-bar {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.ui-section-header { display: grid; align-items: start; gap: 20px; }
+.ui-section-header--split { grid-template-columns: minmax(0, 1fr) minmax(240px, .4fr); }
+.ui-section-header__eyebrow, .ui-section-header__title, .ui-section-header__description { margin: 0; }
+.ui-section-header__title { font-size: clamp(40px, 5vw, 72px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+.ui-section-header__description { color: var(--color-muted); font-size: 18px; line-height: 1.4; }
+.ui-tab-list__tab:focus-visible { @include focus-visible; }
+
+#header.is-menu-open .dds-main-menu { display: flex; }
+#header.is-menu-open .dds-main-burger-icon { border-top-color: transparent; border-bottom-color: transparent; }
+#header.is-menu-open .dds-main-burger-icon::before { transform: translateY(-50%) rotate(45deg); }
+#header.is-menu-open .dds-main-burger-icon::after { opacity: 1; transform: translateY(-50%) rotate(-45deg); }
+
+.skip-link { position: fixed; z-index: 1000; top: 8px; left: 8px; padding: 10px 14px; border-radius: var(--radius-small); color: var(--color-white); background: var(--color-ink); transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+
+@media (max-width: 767px) { .ui-section-header--split { grid-template-columns: 1fr; } }
+
+@include reduced-motion { .ui-tab-list__tab { transition: none; } }

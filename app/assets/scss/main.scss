@@ -1,16 +1,15 @@
+@use 'settings';
 @use 'tokens';
 @use 'base';
 @use 'motion';
 @use 'sections';
 @use 'responsive';
 @use 'large-screens';
+@use 'ui';
+@use 'landing-modern';
 
 body {
   gap: 0;
-}
-
-:root {
-  --snapbuild-brand-gradient: linear-gradient(135deg, #ff6d3d 0%, #ff6ca7 52%, #bb6dff 100%);
 }
 
 html,
@@ -36,8 +35,8 @@ body {
 }
 
 :where(a, button, input, textarea, [tabindex]):focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .dds-rmap-scroller:focus-visible {

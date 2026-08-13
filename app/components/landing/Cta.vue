@@ -13,7 +13,7 @@
         <p class="dds-launch-subtitle">Выстройте маркетинг в единый поток — от первой идеи до финального взаимодействия с клиентом.</p>
       </div>
       <div class="dds-launch-actions">
-        <a class="dds-launch-btn" href="https://builder.snapbuild.ru/page/019f7fde-d606-7e57-beda-3b163e5f28f3/019f7fde-df04-7ed1-b554-24792c0e689c" style="display: flex; text-decoration: none; color: inherit;" target="_blank" rel="noopener noreferrer"><span class="dds-launch-btn-text">Начать сейчас</span></a>
+        <a class="dds-launch-btn ui-external-cta" href="https://builder.snapbuild.ru/page/019f7fde-d606-7e57-beda-3b163e5f28f3/019f7fde-df04-7ed1-b554-24792c0e689c" target="_blank" rel="noopener noreferrer"><span class="dds-launch-btn-text">Начать сейчас</span></a>
 
       </div>
     </div>

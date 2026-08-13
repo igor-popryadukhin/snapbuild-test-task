@@ -8,6 +8,11 @@ import LandingMeasurableEffect from '../app/components/landing/MeasurableEffect.
 import LandingCustomerStories from '../app/components/landing/CustomerStories.vue'
 import LandingDemoRequest from '../app/components/landing/DemoRequest.vue'
 import LandingFaq from '../app/components/landing/Faq.vue'
+import LandingRoadmap from '../app/components/landing/Roadmap.vue'
+import LandingProcess from '../app/components/landing/Process.vue'
+import LandingSecurity from '../app/components/landing/Security.vue'
+import LandingComparison from '../app/components/landing/Comparison.vue'
+import LandingLogos from '../app/components/landing/Logos.vue'
 
 describe('landing interactions', () => {
   it('validates and completes the client-only demo request', async () => {
@@ -35,10 +40,21 @@ describe('landing interactions', () => {
     const wrapper = await mountSuspended(LandingHeader)
     const burger = wrapper.get('.dds-main-burger')
 
-    await burger.trigger('keydown', { key: 'Enter' })
+    await burger.trigger('click')
     expect(burger.attributes('aria-expanded')).toBe('true')
     await wrapper.get('.dds-main-menu-link').trigger('click')
     expect(burger.attributes('aria-expanded')).toBe('false')
+  })
+
+  it('applies the scrolled header state after the page moves', async () => {
+    const wrapper = await mountSuspended(LandingHeader)
+    vi.spyOn(window, 'scrollY', 'get').mockReturnValue(120)
+
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.get('#header').classes()).toContain('is-scrolled')
+    vi.restoreAllMocks()
   })
 
   it('keeps the active use-case card and image synchronized', async () => {
@@ -91,6 +107,28 @@ describe('landing interactions', () => {
     expect(controls).toHaveLength(8)
     await controls[0]!.setValue(true)
     expect((controls[0]!.element as HTMLInputElement).checked).toBe(true)
+  })
+
+  it('renders complete data-driven roadmap, process, security and comparison collections', async () => {
+    const roadmap = await mountSuspended(LandingRoadmap)
+    const process = await mountSuspended(LandingProcess)
+    const security = await mountSuspended(LandingSecurity)
+    const comparison = await mountSuspended(LandingComparison)
+
+    expect(roadmap.findAll('.dds-rmap-item')).toHaveLength(12)
+    expect(roadmap.get('.dds-rmap-track').attributes('style')).toContain('--dds-rmap-progress: 8')
+    expect(roadmap.find('progress').exists()).toBe(false)
+    expect(process.findAll('.dds-steps-card')).toHaveLength(3)
+    expect(security.findAll('.dds-why-safe-point')).toHaveLength(3)
+    expect(comparison.findAll('.sds-compare-row')).toHaveLength(5)
+  })
+
+  it('uses one marquee track with a repeated logo sequence', async () => {
+    const wrapper = await mountSuspended(LandingLogos)
+
+    expect(wrapper.findAll('.dds-marquee-track')).toHaveLength(1)
+    expect(wrapper.findAll('.dds-marquee-content')).toHaveLength(2)
+    expect(wrapper.findAll('.dds-marquee-item')).toHaveLength(10)
   })
 
   it('renders every implementation stage and its accountable outcome without interaction', async () => {

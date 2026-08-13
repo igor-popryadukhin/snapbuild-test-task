@@ -64,39 +64,3 @@ async function handleSubmit(): Promise<void> {
     </div>
   </section>
 </template>
-
-<style scoped lang="scss">
-.demo-request { padding: clamp(64px, 8vw, 116px) max(16px, 2.78vw); color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background: #f5f5f6; }
-.demo-request__inner { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); gap: clamp(40px, 8vw, 120px); width: min(100%, 1360px); margin: 0 auto; }
-.demo-request__intro p, .demo-request__intro h2, .demo-request__card p, .demo-request__card h3 { margin: 0; }
-.demo-request__eyebrow { width: fit-content; margin-bottom: 24px !important; color: transparent; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; background: var(--snapbuild-brand-gradient); background-clip: text; -webkit-background-clip: text; }
-.demo-request__intro h2 { max-width: 610px; color: #111; font-size: clamp(42px, 5vw, 70px); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
-.demo-request__intro > p:last-child { max-width: 500px; margin-top: 28px; color: #5a5b62; font-size: 18px; line-height: 1.45; }
-.demo-request__card { align-self: start; padding: clamp(24px, 3vw, 44px); border: 1px solid #d9d9da; border-radius: 20px; background: #fff; }
-.demo-request__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 18px; }
-.demo-request__field { min-width: 0; }
-.demo-request__field--wide { grid-column: 1 / -1; }
-.demo-request label { display: block; margin-bottom: 8px; color: #33343a; font-size: 15px; }
-.demo-request label span { color: #696a70; }
-.demo-request input, .demo-request textarea { box-sizing: border-box; width: 100%; border: 1px solid #d9d9da; border-radius: 12px; color: #111; font: inherit; font-size: 17px; background: #fafafa; transition: border-color 180ms ease, box-shadow 180ms ease; }
-.demo-request input { height: 52px; padding: 0 15px; }
-.demo-request textarea { min-height: 116px; padding: 14px 15px; resize: vertical; }
-.demo-request input:hover, .demo-request textarea:hover { border-color: #999a9e; }
-.demo-request input:focus-visible, .demo-request textarea:focus-visible { border-color: #ff6d3d; outline: 0; box-shadow: 0 0 0 3px rgba(255, 109, 61, .22); }
-.demo-request input[aria-invalid="true"], .demo-request textarea[aria-invalid="true"] { border-color: #ff6d3d; }
-.demo-request__error { color: #5a5b62 !important; font-weight: 500; }
-.demo-request__field > .demo-request__error { margin-top: 7px; font-size: 14px; line-height: 1.3; }
-.demo-request__field-meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 7px; color: #696a70; font-size: 13px; }
-.demo-request__actions { display: flex; align-items: center; justify-content: flex-end; gap: 24px; margin-top: 32px; }
-.demo-request button { flex: 0 0 auto; min-height: 52px; padding: 0 24px; border: 0; border-radius: 12px; color: #fff; font: inherit; font-size: 17px; font-weight: 500; background: var(--snapbuild-brand-gradient); cursor: pointer; transition: transform 180ms ease, filter 180ms ease; }
-.demo-request button:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
-.demo-request button:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
-.demo-request button:disabled { cursor: wait; opacity: .65; }
-.demo-request__success { display: grid; min-height: 410px; align-content: center; justify-items: start; }
-.demo-request__success > span { display: grid; width: 58px; height: 58px; margin-bottom: 28px; place-items: center; border-radius: 50%; color: #fff; font-size: 28px; background: var(--snapbuild-brand-gradient); }
-.demo-request__success h3 { font-size: clamp(34px, 4vw, 52px); font-weight: 500; line-height: 1; letter-spacing: -.035em; }
-.demo-request__success p { max-width: 520px; margin: 18px 0 32px; color: #5a5b62; font-size: 17px; line-height: 1.45; }
-@media (max-width: 1023px) { .demo-request__inner { grid-template-columns: 1fr; } .demo-request__intro h2 { max-width: 760px; } }
-@media (max-width: 767px) { .demo-request__intro h2 { font-size: 42px; } .demo-request__intro > p:last-child { font-size: 16px; } .demo-request__card { padding: 24px 18px; border-radius: 16px; } .demo-request__fields { grid-template-columns: 1fr; } .demo-request__field--wide { grid-column: auto; } .demo-request__actions { align-items: stretch; flex-direction: column; } .demo-request__actions button { width: 100%; } }
-@media (prefers-reduced-motion: reduce) { .demo-request input, .demo-request textarea, .demo-request button { transition: none; } .demo-request button:hover:not(:disabled) { transform: none; } }
-</style>

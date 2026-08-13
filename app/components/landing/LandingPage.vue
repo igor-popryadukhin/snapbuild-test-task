@@ -26,8 +26,3 @@ useOriginalReveals(landingRoot)
     <LandingFooter />
   </main>
 </template>
-
-<style scoped>
-.skip-link { position: fixed; z-index: 1000; top: 8px; left: 8px; padding: 10px 14px; border-radius: 8px; color: #fff; background: #111; transform: translateY(-150%); }
-.skip-link:focus { transform: translateY(0); }
-</style>

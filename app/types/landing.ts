@@ -24,7 +24,6 @@ export interface RoleScenario {
   readonly task: string
   readonly process: string
   readonly result: string
-  readonly accent: string
 }
 
 /** An illustrative customer workflow used to explain a possible product outcome. */
@@ -36,8 +35,28 @@ export interface CustomerStory {
   readonly task: string
   readonly result: string
   readonly deliverables: readonly string[]
-  readonly accent: string
 }
+
+/** A question and rich-text answer displayed in the FAQ disclosure grid. */
+export interface FaqItem { readonly id: string; readonly question: string; readonly answer: string }
+
+/** A dated product milestone displayed on the release timeline. */
+export interface RoadmapItem { readonly id: string; readonly title: string; readonly description: string; readonly date: string; readonly reached: boolean }
+
+/** A media-backed explanation of the platform workflow. */
+export interface ProcessCard { readonly id: string; readonly title: string; readonly mobileTitle: string; readonly description: string; readonly image: string; readonly mobileImage?: string; readonly tabletImage?: string; readonly width: number; readonly height: number }
+
+/** A security capability with responsive supporting media. */
+export interface SecurityFeature { readonly id: string; readonly title: string; readonly description: string; readonly image: string; readonly mobileImage: string }
+
+/** A customer logo used by the repeating marquee. */
+export interface LogoItem { readonly id: string; readonly image: string; readonly className: string }
+
+/** One labelled row in the product comparison table. */
+export interface ComparisonRow { readonly id: string; readonly label: string; readonly values: readonly string[]; readonly checks?: readonly number[] }
+
+/** A stable in-page or external navigation destination. */
+export interface NavigationLink { readonly label: string; readonly href: string }
 
 /** A sequential phase of introducing Snapbuild into a corporate workflow. */
 export interface ImplementationStep {

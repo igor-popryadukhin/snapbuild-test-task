@@ -1,31 +1,16 @@
-<!-- Renders the LandingLogos section of the landing page. -->
+<!-- Renders the infinitely repeating customer-logo marquee from shared data. -->
+<script setup lang="ts">
+import { logos } from '~/data/landing'
+</script>
+
 <template>
-<section id="logos" class="logos dds-logos dds-marquee">
-    <p class="dds-marquee-eyebrow">С платформой работают команды, для которых бренд — закон</p>
-    <div class="dds-marquee-track" data-marquee-built="">
-      <div class="dds-marquee-content">
-        <div class="dds-marquee-item dds-marquee-item-3">
-          <img :src="useAssetUrl('assets/images/5cd01de0b6a5e001.svg')" style="display: block;" width="100%" height="100%" alt="">
+  <section id="logos" class="logos dds-logos dds-marquee" aria-label="Компании, использующие Снэпбилд">
+    <p class="dds-marquee-eyebrow">С платформой работают команды, для которых бренд — закон</p>
+    <div class="dds-marquee-track">
+      <div v-for="copy in 2" :key="copy" class="dds-marquee-content" :aria-hidden="copy === 2">
+        <div v-for="logo in logos" :key="`${copy}-${logo.id}`" class="dds-marquee-item" :class="logo.className">
+          <img class="dds-marquee-image" :src="useAssetUrl(logo.image)" width="100%" height="100%" alt="">
         </div>
-        <div class="dds-marquee-item dds-marquee-item-4">
-          <img :src="useAssetUrl('assets/images/ee341193d7cf46d6.svg')" style="display: block;" width="100%" height="100%" alt="">
-        </div>
-        <div class="dds-marquee-item dds-marquee-item-7">
-          <img :src="useAssetUrl('assets/images/logo-avito.svg')" style="display: block;" width="100%" height="100%" alt="">
-        </div>
-        <div class="dds-marquee-item dds-marquee-item-8">
-          <img :src="useAssetUrl('assets/images/logo-cian.svg')" style="display: block;" width="100%" height="100%" alt="">
-        </div>
-        <div class="dds-marquee-item dds-marquee-item-10">
-          <img :src="useAssetUrl('assets/images/logo-lenta.svg')" style="display: block;" width="100%" height="100%" alt="">
-        </div>
-      </div>
-      <div class="dds-marquee-content" aria-hidden="true">
-        <div class="dds-marquee-item dds-marquee-item-3"><img :src="useAssetUrl('assets/images/5cd01de0b6a5e001.svg')" style="display: block;" width="100%" height="100%" alt=""></div>
-        <div class="dds-marquee-item dds-marquee-item-4"><img :src="useAssetUrl('assets/images/ee341193d7cf46d6.svg')" style="display: block;" width="100%" height="100%" alt=""></div>
-        <div class="dds-marquee-item dds-marquee-item-7"><img :src="useAssetUrl('assets/images/logo-avito.svg')" style="display: block;" width="100%" height="100%" alt=""></div>
-        <div class="dds-marquee-item dds-marquee-item-8"><img :src="useAssetUrl('assets/images/logo-cian.svg')" style="display: block;" width="100%" height="100%" alt=""></div>
-        <div class="dds-marquee-item dds-marquee-item-10"><img :src="useAssetUrl('assets/images/logo-lenta.svg')" style="display: block;" width="100%" height="100%" alt=""></div>
       </div>
     </div>
   </section>
