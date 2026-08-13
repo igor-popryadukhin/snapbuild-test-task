@@ -48,7 +48,7 @@ describe('landing interactions', () => {
     const tabs = wrapper.findAll('[role="tab"]')
 
     expect(tabs).toHaveLength(3)
-    expect(wrapper.text()).toContain('не являются отзывами реальных клиентов')
+    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Демонстрационный сценарий')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
 

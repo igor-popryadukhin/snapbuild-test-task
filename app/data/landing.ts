@@ -1,4 +1,11 @@
-import type { CustomerStory, RoleScenario, UseCaseTab } from '~/types/landing'
+import type {
+  CustomerStory,
+  EffectComparison,
+  EffectMetric,
+  ImplementationStep,
+  RoleScenario,
+  UseCaseTab,
+} from '~/types/landing'
 
 /** Illustrative workflows; these entries are product scenarios, not verified testimonials. */
 export const customerStories = [
@@ -33,7 +40,6 @@ export const customerStories = [
     accent: '#b8a6ff',
   },
 ] as const satisfies readonly CustomerStory[]
-import type { EffectComparison, EffectMetric, ImplementationStep, RoleScenario, UseCaseTab } from '~/types/landing'
 
 /** Illustrative metrics for a team producing recurring campaign materials. */
 export const effectMetrics = [
