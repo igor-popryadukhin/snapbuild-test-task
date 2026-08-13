@@ -52,7 +52,7 @@ import { effectComparisons, effectMetrics } from '~/data/landing'
 </template>
 
 <style scoped lang="scss">
-.measurable-effect { box-sizing: border-box; width: 100%; max-width: calc(100vw - 16px); padding: clamp(64px, 7vw, 100px) max(16px, 2.78vw); overflow: hidden; border-radius: 16px; color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background: #fff; }
+.measurable-effect { box-sizing: border-box; width: 100%; max-width: calc(100vw - 16px); padding: clamp(64px, 7vw, 100px) max(16px, 2.78vw); overflow: hidden; border-radius: 16px; color: #111; font-family: var(--font-primary, "TT Commons Pro", sans-serif); background: #f5f5f6; }
 .measurable-effect__inner { width: min(100%, 1360px); margin: 0 auto; }
 .measurable-effect__header { display: grid; grid-template-areas: "label label" "title intro"; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr); gap: 24px clamp(40px, 7vw, 108px); align-items: end; margin-bottom: clamp(40px, 4vw, 56px); }
 .measurable-effect__label, .measurable-effect__title, .measurable-effect__intro, .measurable-effect__comparison p, h3, dl, dd { margin: 0; }
@@ -65,19 +65,19 @@ import { effectComparisons, effectMetrics } from '~/data/landing'
 .measurable-effect__metric:first-child { padding-left: 0; }
 .measurable-effect__metric:last-child { padding-right: 0; border-right: 0; }
 .measurable-effect__metric dt { display: flex; flex-direction: column; min-height: 150px; }
-.measurable-effect__metric strong { color: transparent; font-size: clamp(72px, 8vw, 116px); font-weight: 500; line-height: .82; letter-spacing: -.065em; font-variant-numeric: tabular-nums; background: linear-gradient(90deg, #ff6d3c, #ff6ba7 46%, #bb6dff); background-clip: text; -webkit-background-clip: text; }
+.measurable-effect__metric strong { color: transparent; font-size: clamp(72px, 8vw, 116px); font-weight: 500; line-height: .82; letter-spacing: -.065em; font-variant-numeric: tabular-nums; background: var(--snapbuild-brand-gradient); background-clip: text; -webkit-background-clip: text; }
 .measurable-effect__metric dt span { max-width: 270px; margin-top: 24px; font-size: clamp(20px, 2vw, 27px); line-height: 1.05; }
 .measurable-effect__metric dd { max-width: 330px; margin-top: 28px; color: #777771; font-size: 16px; line-height: 1.4; }
 .measurable-effect__comparison { margin-top: clamp(56px, 7vw, 96px); border: 1px solid #d8d8d2; border-radius: 20px; overflow: hidden; background: #fff; }
-.measurable-effect__comparison-header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; align-items: end; padding: clamp(28px, 3vw, 44px); background: linear-gradient(110deg, #fff7f2, #fff3f8 52%, #f5f2ff); }
+.measurable-effect__comparison-header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; align-items: end; padding: clamp(28px, 3vw, 44px); background: #fafafa; }
 .measurable-effect__comparison h3 { margin-top: 10px; color: inherit; font-size: clamp(30px, 3vw, 44px); font-weight: 500; line-height: 1.05; letter-spacing: -.03em; }
 .measurable-effect__legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; color: #777771; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
-.measurable-effect__legend span:last-child { color: #cf467f; }
+.measurable-effect__legend span:last-child { color: #111; }
 .measurable-effect__row { display: grid; grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(0, 1fr)); gap: 24px; padding: 0 clamp(28px, 3vw, 44px); border-top: 1px solid #d8d8d2; }
 .measurable-effect__row dt, .measurable-effect__row dd { padding-block: 28px; font-size: 18px; line-height: 1.35; }
 .measurable-effect__row dt { color: #777771; }
 .measurable-effect__row dd { border-left: 1px solid #d8d8d2; padding-left: 24px; }
-.measurable-effect__after { color: #b83e72; }
+.measurable-effect__after { color: #111; font-weight: 500; }
 .measurable-effect__mobile-label { display: none; }
 
 @media (max-width: 1023px) {
@@ -105,8 +105,8 @@ import { effectComparisons, effectMetrics } from '~/data/landing'
   .measurable-effect__row { grid-template-columns: 1fr; gap: 0; padding: 0 20px 20px; }
   .measurable-effect__row dt { padding: 20px 0 12px; font-size: 16px; }
   .measurable-effect__row dd { padding: 16px; border: 0; border-radius: 8px; color: #454541; font-size: 16px; background: #f3f3f2; }
-  .measurable-effect__row .measurable-effect__after { margin-top: 8px; color: #111; background: linear-gradient(110deg, #fff0e8, #ffeaf3 52%, #eee9ff); }
+  .measurable-effect__row .measurable-effect__after { margin-top: 8px; border: 1px solid #ff6ca7; color: #111; background: #fff; }
   .measurable-effect__mobile-label { display: block; margin-bottom: 5px; color: #777771; font-size: 11px; }
-  .measurable-effect__after .measurable-effect__mobile-label { color: #a33b6b; }
+  .measurable-effect__after .measurable-effect__mobile-label { color: #5a5b62; }
 }
 </style>

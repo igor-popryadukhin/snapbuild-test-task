@@ -9,6 +9,10 @@ body {
   gap: 0;
 }
 
+:root {
+  --snapbuild-brand-gradient: linear-gradient(135deg, #ff6d3d 0%, #ff6ca7 52%, #bb6dff 100%);
+}
+
 html,
 body {
   overflow-x: clip;

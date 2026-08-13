@@ -119,14 +119,14 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
 .customer-stories__header p, .customer-stories__header h2, .customer-stories__panel p, .customer-stories__panel h3, .customer-stories__details, .customer-stories__controls p { margin: 0; }
 .customer-stories__label, .customer-stories__scenario-label { color: #696a70; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
 .customer-stories__label { grid-area: label; }
-.customer-stories__header h2 { grid-area: title; max-width: 760px; font-size: clamp(42px, 5vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
+.customer-stories__header h2 { grid-area: title; max-width: 760px; color: #111; font-size: clamp(42px, 5vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
 .customer-stories__intro { grid-area: intro; max-width: 340px; padding-bottom: 4px; color: #5a5b62; font-size: 18px; line-height: 1.4; }
 .customer-stories__navigation { margin-bottom: 40px; border-bottom: 1px solid #d9d9da; }
 .customer-stories__tabs { display: flex; min-width: 0; }
 .customer-stories__tab { display: flex; align-items: baseline; gap: 10px; min-height: 58px; padding: 16px 20px; border: 0; border-bottom: 2px solid transparent; border-radius: 0 !important; color: #6a6b70; font: inherit; font-size: 17px; white-space: nowrap; text-align: left; background: transparent; cursor: pointer; transition: color 180ms ease, border-color 180ms ease; }
 .customer-stories__tab:hover { color: #111; }
 .customer-stories__tab:focus-visible { position: relative; z-index: 1; outline: 2px solid #111; outline-offset: -3px; }
-.customer-stories__tab--active { border-bottom-color: #111; color: #111; }
+.customer-stories__tab--active { border-image: var(--snapbuild-brand-gradient) 1; color: #111; }
 .customer-stories__tab-number { color: #68696d; font-size: 13px; }
 .customer-stories__layout { display: grid; }
 .customer-stories__panel-shell { min-height: 500px; }
@@ -134,10 +134,10 @@ async function handleTabKeydown(event: KeyboardEvent, index: number): Promise<vo
 .customer-stories__identity { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(32px, 3.5vw, 52px); border-right: 1px solid #ededee; background: #fafafa; }
 .customer-stories__identity p:first-child { font-size: 22px; line-height: 1.2; }
 .customer-stories__identity p:last-child { margin-top: 8px; color: #5a5b62; font-size: 15px; }
-.customer-stories__mark { display: grid; width: 72px; height: 72px; place-items: center; border-radius: 50%; color: #111; font-size: 32px; font-weight: 500; background: var(--story-accent); }
+.customer-stories__mark { display: grid; width: 72px; height: 72px; place-items: center; border-radius: 50%; color: #fff; font-size: 32px; font-weight: 500; background: var(--snapbuild-brand-gradient); }
 .customer-stories__content { display: flex; flex-direction: column; padding: clamp(30px, 4.2vw, 60px); }
-.customer-stories__scenario-label { color: #b93a12; }
-.customer-stories__content h3 { max-width: 760px; margin-top: 18px; font-size: clamp(32px, 3.5vw, 50px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
+.customer-stories__scenario-label { width: fit-content; color: transparent; background: var(--snapbuild-brand-gradient); background-clip: text; -webkit-background-clip: text; }
+.customer-stories__content h3 { max-width: 760px; margin-top: 18px; color: #111; font-size: clamp(32px, 3.5vw, 50px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
 .customer-stories__details { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 48px); margin-top: auto; padding-top: 48px; }
 .customer-stories__details div { padding-top: 16px; border-top: 1px solid #ededee; }
 .customer-stories__details dt { margin-bottom: 10px; color: #707176; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; }
