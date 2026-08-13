@@ -12,6 +12,7 @@ useOriginalReveals(landingRoot)
     <LandingLogos />
     <LandingProcess />
     <LandingUseCases />
+    <LandingRoleScenarios />
     <LandingComparison />
     <LandingSecurity />
     <LandingRoadmap />

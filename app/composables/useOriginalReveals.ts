@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { onBeforeUnmount, onMounted } from 'vue'
 
-const revealIds = ['hero', 'logos', 'process', 'use-cases', 'features', 'compare', 'roadmap', 'faq', 'cta', 'footer']
+const revealIds = ['hero', 'logos', 'process', 'use-cases', 'scenarios', 'features', 'compare', 'roadmap', 'faq', 'cta', 'footer']
 
 /** Recreates the source landing's viewport reveal classes without its analytics scripts.
  * @param root Ref containing the landing root whose sections may be observed.

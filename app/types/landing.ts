@@ -12,3 +12,15 @@ export interface UseCaseTab {
   readonly label: string
   readonly items: readonly UseCaseItem[]
 }
+
+/** A role-specific workflow presented in the scenarios section. */
+export interface RoleScenario {
+  readonly id: string
+  readonly role: string
+  readonly eyebrow: string
+  readonly title: string
+  readonly task: string
+  readonly process: string
+  readonly result: string
+  readonly accent: string
+}
