@@ -33,7 +33,10 @@ jobs:
       - run: npm run generate
         env:
           NUXT_APP_BASE_URL: /snapbuild-test-task/
-      - uses: actions/configure-pages@v5
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
