@@ -19,10 +19,10 @@ useOriginalReveals(landingRoot)
     <LandingComparison />
     <LandingSecurity />
     <LandingRoadmap />
-    <LandingFaq />
     <LandingCustomerStories />
     <LandingDemoRequest />
     <LandingCta />
+    <LandingFaq />
     <LandingFooter />
   </main>
 </template>
