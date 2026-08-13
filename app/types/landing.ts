@@ -29,6 +29,8 @@ export interface RoleScenario {
 /** An illustrative customer workflow used to explain a possible product outcome. */
 export interface CustomerStory {
   readonly id: string
+  readonly image: string
+  readonly imageAlt: string
   readonly role: string
   readonly company: string
   readonly title: string

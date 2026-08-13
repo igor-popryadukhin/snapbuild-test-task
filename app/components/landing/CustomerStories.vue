@@ -5,6 +5,7 @@ import { customerStories } from '~/data/landing'
 
 const { activeIndex, select } = useScenarioTabs(customerStories.length)
 const activeStory = computed(() => customerStories[activeIndex.value]!)
+const activeStoryImage = computed(() => useAssetUrl(activeStory.value.image))
 const storyTabs = customerStories.map(story => ({ id: story.id, label: story.company }))
 const activeStoryId = computed({
   get: () => activeStory.value.id,
@@ -45,8 +46,17 @@ function move(direction: -1 | 1): void {
             :aria-labelledby="`customer-story-tab-${activeStory.id}`"
           >
             <div class="customer-stories__identity">
-              <span class="customer-stories__mark" aria-hidden="true">{{ activeStory.role.charAt(0) }}</span>
-              <div>
+              <div class="customer-stories__portrait">
+                <img
+                  :src="activeStoryImage"
+                  :alt="activeStory.imageAlt"
+                  width="720"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="customer-stories__person">
                 <p>{{ activeStory.role }}</p>
                 <p>{{ activeStory.company }}</p>
               </div>

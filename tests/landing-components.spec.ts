@@ -87,11 +87,15 @@ describe('landing interactions', () => {
 
     expect(tabs).toHaveLength(3)
     expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Рабочий сценарий')
+    expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-marketing.webp')
+    expect(wrapper.get('.customer-stories__portrait img').attributes('width')).toBe('720')
+    expect(wrapper.get('.customer-stories__portrait img').attributes('height')).toBe('900')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
 
     await wrapper.get('[aria-label="Следующая история"]').trigger('click')
     expect(tabs[1]!.attributes('aria-selected')).toBe('true')
+    expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-sales.webp')
     expect(wrapper.get('[aria-live="polite"]').text()).toContain('2 / 3')
 
     await tabs[1]!.trigger('keydown', { key: 'End' })
