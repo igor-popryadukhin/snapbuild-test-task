@@ -23,6 +23,10 @@
 - Search the codebase before writing new code. Reuse and adapt existing
   components, composables, utilities, types, styles and design tokens whenever
   they satisfy the requirement.
+- When designing a new feature, follow the current UI style and established
+  visual language. Reuse the project's existing components, design tokens,
+  typography, spacing, layout and interaction patterns unless the requirements
+  explicitly call for a redesign.
 - Prefer composition over duplication. Keep dependencies directed from
   high-level UI toward stable interfaces and framework-independent logic.
 - Keep reusable logic outside Vue components when it does not depend on the
