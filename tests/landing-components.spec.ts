@@ -1,14 +1,36 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import LandingHeader from '../app/components/landing/Header.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
 import LandingRoleScenarios from '../app/components/landing/RoleScenarios.vue'
 import LandingImplementation from '../app/components/landing/Implementation.vue'
 import LandingMeasurableEffect from '../app/components/landing/MeasurableEffect.vue'
 import LandingCustomerStories from '../app/components/landing/CustomerStories.vue'
+import LandingDemoRequest from '../app/components/landing/DemoRequest.vue'
 import LandingFaq from '../app/components/landing/Faq.vue'
 
 describe('landing interactions', () => {
+  it('validates and completes the client-only demo request', async () => {
+    const wrapper = await mountSuspended(LandingDemoRequest)
+    vi.useFakeTimers()
+
+    await wrapper.get('form').trigger('submit')
+    expect(wrapper.findAll('.demo-request__error')).toHaveLength(3)
+    expect(wrapper.get('#demo-email').attributes('aria-invalid')).toBe('true')
+
+    await wrapper.get('#demo-name').setValue('Игорь')
+    await wrapper.get('#demo-email').setValue('igor@company.ru')
+    await wrapper.get('#demo-company').setValue('Компания')
+    await wrapper.get('form').trigger('submit')
+    expect(wrapper.get('button[type="submit"]').attributes('disabled')).toBeDefined()
+
+    await vi.runAllTimersAsync()
+    expect(wrapper.get('[role="status"]').text()).toContain('данные не передавались')
+    await wrapper.get('[role="status"] button').trigger('click')
+    expect(wrapper.find('form').exists()).toBe(true)
+    vi.useRealTimers()
+  })
+
   it('opens and closes the mobile navigation from the keyboard', async () => {
     const wrapper = await mountSuspended(LandingHeader)
     const burger = wrapper.get('.dds-main-burger')
