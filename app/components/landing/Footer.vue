@@ -1,6 +1,6 @@
 <!-- Renders the LandingFooter section of the landing page. -->
 <template>
-<section id="footer" class="footer dds-footer">
+<footer id="footer" class="footer dds-footer">
     <div class="dds-footer-top">
       <div class="dds-footer-brand">
         <a class="dds-footer-logo" href="./" aria-label="&#1057;&#1085;&#1101;&#1087;&#1073;&#1080;&#1083;&#1076;" target="_self">
@@ -42,7 +42,7 @@
     </div>
     <div class="dds-footer-legal">
       <p class="dds-footer-copyright">© Сгенерировано в Снэпбилде. Все права защищены.</p>
-      <a class="dds-footer-email" href="mailto:hey@snapbuild.ru"/><a href="mailto:hey@snapbuild.ru" style='text-decoration: none; color: inherit; font-family: "TT Commons Pro", sans-serif; font-size: 14px; font-weight: 500; line-height: 20.0004px; letter-spacing: normal; text-align: start; text-transform: none;' target="_blank" rel="noopener noreferrer">hey@snapbuild.ru</a>
+      <a href="mailto:hey@snapbuild.ru" style='text-decoration: none; color: inherit; font-family: "TT Commons Pro", sans-serif; font-size: 14px; font-weight: 500; line-height: 20.0004px; letter-spacing: normal; text-align: start; text-transform: none;'>hey@snapbuild.ru</a>
     </div>
-  </section>
+  </footer>
 </template>

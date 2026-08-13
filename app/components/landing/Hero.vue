@@ -12,7 +12,7 @@
           <a class="dds-app-preview-cta" href="https://builder.snapbuild.ru/page/019f7fde-d606-7e57-beda-3b163e5f28f3/019f7fde-df04-7ed1-b554-24792c0e689c" style="display: flex; text-decoration: none; color: inherit;" target="_blank" rel="noopener noreferrer"><span class="dds-app-preview-cta-text">Начать сейчас</span></a>
         </div>
         <div class="dds-app-preview-media">
-          <img class="dds-app-preview-shot" :src="useAssetUrl('assets/images/hero-snapbuild-2026-08-07-v2.webp')" alt="">
+          <img class="dds-app-preview-shot" :src="useAssetUrl('assets/images/hero-snapbuild-2026-08-07-v2.webp')" alt="" width="2632" height="1386" fetchpriority="high">
         </div>
       </div>
     </div>

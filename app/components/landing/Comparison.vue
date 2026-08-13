@@ -7,10 +7,10 @@
     </header>
 
     <div class="dds-benefit-scroll">
-      <div class="sds-compare-table" role="table">
+      <div class="sds-compare-table" role="region" aria-label="Сравнение способов создания маркетинговых материалов">
         <div class="sds-compare-brand-border" aria-hidden="true"/>
 
-        <div class="sds-compare-row sds-compare-row--head" role="row">
+        <div class="sds-compare-row sds-compare-row--head">
           <div class="sds-compare-cell sds-compare-cell--label"><span>Особенности</span></div>
           <div class="sds-compare-cell">
             <span class="sds-compare-brandname">снэпбилд</span>
@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div class="sds-compare-row" role="row">
+        <div class="sds-compare-row">
           <div class="sds-compare-cell sds-compare-cell--label"><span>Time-to-market</span></div>
           <div class="sds-compare-cell"><span>5 минут</span></div>
           <div class="sds-compare-cell"><span>30–60 мин</span></div>
@@ -38,7 +38,7 @@
           <div class="sds-compare-cell"><span>3–5 недель</span></div>
         </div>
 
-        <div class="sds-compare-row" role="row">
+        <div class="sds-compare-row">
           <div class="sds-compare-cell sds-compare-cell--label"><span>Дизайн-система</span></div>
           <div class="sds-compare-cell"><span>100%<br>точность</span></div>
           <div class="sds-compare-cell"><span>Частично, из Figma</span></div>
@@ -47,7 +47,7 @@
           <div class="sds-compare-cell"><span>Вручную, через ревью</span></div>
         </div>
 
-        <div class="sds-compare-row" role="row">
+        <div class="sds-compare-row">
           <div class="sds-compare-cell sds-compare-cell--label"><span>Визуальный редактор</span></div>
           <div class="sds-compare-cell">
             <span class="sds-check"><img :src="useAssetUrl('assets/images/a4ce0581ce7807b6.svg')" alt="" width="100%" height="100%"></span>
@@ -61,7 +61,7 @@
           <div class="sds-compare-cell"><span>—</span></div>
         </div>
 
-        <div class="sds-compare-row" role="row">
+        <div class="sds-compare-row">
           <div class="sds-compare-cell sds-compare-cell--label"><span>Требуемые навыки</span></div>
           <div class="sds-compare-cell"><span>Нет</span></div>
           <div class="sds-compare-cell"><span>Промпты + код</span></div>

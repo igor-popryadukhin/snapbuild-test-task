@@ -9,10 +9,35 @@ body {
   gap: 0;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 .landing-page {
   display: flex;
   flex-direction: column;
   gap: var(--layout-gap);
+}
+
+.landing-page > *,
+.landing-page section,
+.landing-page header,
+.landing-page footer {
+  min-width: 0;
+}
+
+.landing-page section[id] {
+  scroll-margin-top: 88px;
+}
+
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.dds-rmap-scroller:focus-visible {
+  outline-offset: -4px;
 }
 
 .dds-rmap-scroller {

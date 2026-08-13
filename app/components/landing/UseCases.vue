@@ -48,15 +48,15 @@ function selectCardFromKeyboard(event: KeyboardEvent, tabIndex: number, itemInde
 в фирменном стиле
 за считанные минуты</span>
         </h2>
-        <div class="dds-tabs-group" role="tablist" aria-label="Форматы контента">
+        <div class="dds-tabs-group" role="group" aria-label="Форматы контента">
           <label
             v-for="(tab, tabIndex) in useCaseTabs"
             :key="tab.id"
             :for="`uc-tab-${tabIndex + 1}`"
             class="dds-tabs-tab"
-            role="tab"
+            role="button"
             tabindex="0"
-            :aria-selected="activeTabIndex === tabIndex"
+            :aria-pressed="activeTabIndex === tabIndex"
             @keydown="selectTabFromKeyboard($event, tabIndex)"
           >{{ tab.label }}</label>
         </div>

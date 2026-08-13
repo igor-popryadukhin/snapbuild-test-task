@@ -9,7 +9,7 @@ function closeMenu(): void {
 </script>
 
 <template>
-<section id="header" class="header dds-header dds-main">
+<header id="header" class="header dds-header dds-main">
     <input id="dds-main-toggle" v-model="isMenuOpen" class="dds-main-toggle" type="checkbox" aria-hidden="true">
     <div class="dds-main-bar">
       <a class="dds-main-logo" href="./" aria-label="&#1057;&#1085;&#1101;&#1087;&#1073;&#1080;&#1083;&#1076;" target="_self">
@@ -35,5 +35,5 @@ function closeMenu(): void {
       <a class="dds-main-menu-link" href="#faq" @click="closeMenu"><span>FAQ</span></a>
       <a class="dds-btn dds-btn--l dds-btn--secondary" href="https://builder.snapbuild.ru/"><span>Начать сейчас</span></a>
     </nav>
-  </section>
+  </header>
 </template>

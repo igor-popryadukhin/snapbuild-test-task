@@ -2,9 +2,9 @@
 <template>
 <section id="cta" class="cta dds-cta dds-launch">
     <div class="dds-launch-dust" aria-hidden="true">
-      <img class="dds-launch-dust--d" :src="useAssetUrl('assets/images/c3714c375a04149c.webp')" alt="">
-      <img class="dds-launch-dust--t" :src="useAssetUrl('assets/images/f38670cf14e4b7dd.webp')" alt="">
-      <img class="dds-launch-dust--m" :src="useAssetUrl('assets/images/a4285c4b0717be2b.webp')" alt="">
+      <img class="dds-launch-dust--d" :src="useAssetUrl('assets/images/c3714c375a04149c.webp')" alt="" width="1440" height="464" loading="lazy">
+      <img class="dds-launch-dust--t" :src="useAssetUrl('assets/images/f38670cf14e4b7dd.webp')" alt="" width="810" height="416" loading="lazy">
+      <img class="dds-launch-dust--m" :src="useAssetUrl('assets/images/a4285c4b0717be2b.webp')" alt="" width="388" height="388" loading="lazy">
     </div>
     <div class="dds-launch-shine" aria-hidden="true"/>
     <div class="dds-launch-content">

@@ -71,7 +71,7 @@ async function handleSubmit(): Promise<void> {
 .demo-request__inner { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); gap: clamp(40px, 8vw, 120px); width: min(100%, 1360px); margin: 0 auto; }
 .demo-request__intro p, .demo-request__intro h2, .demo-request__card p, .demo-request__card h3 { margin: 0; }
 .demo-request__eyebrow { margin-bottom: 24px !important; color: #ff9a76; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
-.demo-request__intro h2 { max-width: 610px; font-size: clamp(42px, 5vw, 70px); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
+.demo-request__intro h2 { max-width: 610px; color: #fff; font-size: clamp(42px, 5vw, 70px); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
 .demo-request__intro > p:last-child { max-width: 500px; margin-top: 28px; color: #aaa; font-size: 18px; line-height: 1.45; }
 .demo-request__card { align-self: start; padding: clamp(24px, 3vw, 44px); border: 1px solid #3a3a3a; border-radius: 20px; background: #1b1b1b; }
 .demo-request__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 18px; }

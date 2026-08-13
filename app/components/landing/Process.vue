@@ -7,7 +7,7 @@
     </div>
     <div class="dds-steps-grid">
       <article class="dds-steps-card">
-        <img :src="useAssetUrl('assets/images/84a4450b3827bc21.webp')" class="dds-steps-media dds-steps-media--1" alt="" style="object-fit: cover;">
+        <img :src="useAssetUrl('assets/images/84a4450b3827bc21.webp')" class="dds-steps-media dds-steps-media--1" alt="" style="object-fit: cover;" width="2365" height="1774" loading="lazy">
         <div class="dds-steps-overlay">
           <div class="dds-steps-copy">
             <h3 class="dds-steps-name"><span class="dds-steps-wide">Дизайн-система — ядро платформы</span><span class="dds-steps-narrow">Дизайн-система Снэпбилд</span></h3>
@@ -16,7 +16,7 @@
         </div>
       </article>
       <article class="dds-steps-card">
-        <picture class="dds-steps-picture"><source media="(max-width: 767px)" :srcset="useAssetUrl('assets/images/process-flexible-configuration-mobile.webp')"><source media="(max-width: 1023px)" :srcset="useAssetUrl('assets/images/process-flexible-configuration-tablet.webp')"><img :src="useAssetUrl('assets/images/process-flexible-configuration.webp')" class="dds-steps-media dds-steps-media--2" alt=""></picture>
+        <picture class="dds-steps-picture"><source media="(max-width: 767px)" :srcset="useAssetUrl('assets/images/process-flexible-configuration-mobile.webp')"><source media="(max-width: 1023px)" :srcset="useAssetUrl('assets/images/process-flexible-configuration-tablet.webp')"><img :src="useAssetUrl('assets/images/process-flexible-configuration.webp')" class="dds-steps-media dds-steps-media--2" alt="" width="1448" height="1086" loading="lazy"></picture>
         <div class="dds-steps-overlay">
           <div class="dds-steps-copy">
             <h3 class="dds-steps-name"><span class="dds-steps-wide">Гибкая конфигурация</span><span class="dds-steps-narrow">Гибкая конфигурация</span></h3>
@@ -25,7 +25,7 @@
         </div>
       </article>
       <article class="dds-steps-card">
-        <img :src="useAssetUrl('assets/images/afe03eb4a67d5dfb.webp')" class="dds-steps-media dds-steps-media--3" alt="">
+        <img :src="useAssetUrl('assets/images/afe03eb4a67d5dfb.webp')" class="dds-steps-media dds-steps-media--3" alt="" width="1832" height="2290" loading="lazy">
         <div class="dds-steps-overlay">
           <div class="dds-steps-copy">
             <h3 class="dds-steps-name"><span class="dds-steps-wide">Соответствие по умолчанию</span><span class="dds-steps-narrow">Соответствие по умолчанию</span></h3>

@@ -7,6 +7,7 @@ useOriginalReveals(landingRoot)
 
 <template>
   <main ref="landing-root" class="landing-page">
+    <a class="skip-link" href="#hero">Перейти к содержанию</a>
     <LandingHeader />
     <LandingHero />
     <LandingLogos />
@@ -25,3 +26,8 @@ useOriginalReveals(landingRoot)
     <LandingFooter />
   </main>
 </template>
+
+<style scoped>
+.skip-link { position: fixed; z-index: 1000; top: 8px; left: 8px; padding: 10px 14px; border-radius: 8px; color: #fff; background: #111; transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+</style>
