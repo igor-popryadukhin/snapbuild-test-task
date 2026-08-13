@@ -19,6 +19,7 @@ useOriginalReveals(landingRoot)
     <LandingSecurity />
     <LandingRoadmap />
     <LandingFaq />
+    <LandingCustomerStories />
     <LandingCta />
     <LandingFooter />
   </main>

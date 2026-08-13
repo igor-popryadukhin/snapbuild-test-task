@@ -27,6 +27,18 @@ export interface RoleScenario {
   readonly accent: string
 }
 
+/** An illustrative customer workflow used to explain a possible product outcome. */
+export interface CustomerStory {
+  readonly id: string
+  readonly role: string
+  readonly company: string
+  readonly title: string
+  readonly task: string
+  readonly result: string
+  readonly deliverables: readonly string[]
+  readonly accent: string
+}
+
 /** A sequential phase of introducing Snapbuild into a corporate workflow. */
 export interface ImplementationStep {
   readonly id: string

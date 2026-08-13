@@ -1,3 +1,38 @@
+import type { CustomerStory, RoleScenario, UseCaseTab } from '~/types/landing'
+
+/** Illustrative workflows; these entries are product scenarios, not verified testimonials. */
+export const customerStories = [
+  {
+    id: 'campaign',
+    role: 'Руководитель маркетинга',
+    company: 'Финтех-команда',
+    title: 'Запуск кампании без разрыва между каналами',
+    task: 'Подготовить страницу продукта, баннеры и презентацию для нового сегмента в единой визуальной системе.',
+    result: 'Команда получает связанный комплект материалов, который можно уточнять и адаптировать из одного рабочего пространства.',
+    deliverables: ['Лендинг', 'Баннеры', 'Презентация'],
+    accent: '#dfff55',
+  },
+  {
+    id: 'sales',
+    role: 'Менеджер по продажам',
+    company: 'B2B-сервис',
+    title: 'Предложение, собранное под контекст встречи',
+    task: 'Превратить вводные о клиенте и выбранные кейсы в персональную презентацию перед встречей.',
+    result: 'Менеджер получает структурированный черновик в фирменном стиле и самостоятельно обновляет аргументы перед показом.',
+    deliverables: ['Структура', 'Слайды', 'Версия для отправки'],
+    accent: '#8ee8ff',
+  },
+  {
+    id: 'product',
+    role: 'Продуктовый дизайнер',
+    company: 'Цифровой продукт',
+    title: 'Гипотеза становится наглядной до разработки',
+    task: 'Собрать страницу для проверки нового сценария, не выходя за правила действующей дизайн-системы.',
+    result: 'Команда обсуждает готовый интерактивный материал, фиксирует обратную связь и сохраняет компоненты для следующей итерации.',
+    deliverables: ['Страница', 'Компоненты', 'Материал для теста'],
+    accent: '#b8a6ff',
+  },
+] as const satisfies readonly CustomerStory[]
 import type { EffectComparison, EffectMetric, ImplementationStep, RoleScenario, UseCaseTab } from '~/types/landing'
 
 /** Illustrative metrics for a team producing recurring campaign materials. */
