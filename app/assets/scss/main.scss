@@ -1,0 +1,51 @@
+@use 'tokens';
+@use 'base';
+@use 'motion';
+@use 'sections';
+@use 'responsive';
+@use 'large-screens';
+
+body {
+  gap: 0;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+}
+
+.dds-rmap-scroller {
+  touch-action: pan-y;
+}
+
+@media (min-width: 768px) {
+  .landing-page #logos {
+    margin-top: 64px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #features .dds-why-safe-points {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  #footer .dds-footer-brand {
+    width: calc(222 / 7.68 * 1vw);
+  }
+
+  #footer .dds-footer-logo,
+  #footer .dds-footer-logo img {
+    width: calc(153 / 7.68 * 1vw);
+    height: calc(24 / 7.68 * 1vw);
+    max-width: none;
+    max-height: none;
+  }
+
+  #footer .dds-footer-tagline {
+    width: calc(222 / 7.68 * 1vw);
+    max-width: none;
+    font-size: calc(12 / 7.68 * 1vw);
+  }
+}
