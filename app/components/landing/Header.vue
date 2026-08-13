@@ -1,6 +1,6 @@
 <!-- Renders responsive primary navigation and owns the mobile menu state. -->
 <script setup lang="ts">
-import { navigationLinks } from '~/data/landing'
+import { primaryNavigationLinks } from '~/data/landing'
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
@@ -30,7 +30,7 @@ function closeMenu(): void {
         <img :src="useAssetUrl('assets/images/582db07d8ccd60da.svg')" alt="Снэпбилд" width="153" height="22">
       </a>
       <nav class="dds-main-nav" aria-label="&#1054;&#1089;&#1085;&#1086;&#1074;&#1085;&#1072;&#1103; &#1085;&#1072;&#1074;&#1080;&#1075;&#1072;&#1094;&#1080;&#1103;">
-        <a v-for="link in navigationLinks" :key="link.href" class="dds-main-link" :href="link.href"><span>{{ link.label }}</span></a>
+        <a v-for="link in primaryNavigationLinks" :key="link.href" class="dds-main-link" :href="link.href"><span>{{ link.label }}</span></a>
       </nav>
       <div class="dds-main-actions">
         <a class="dds-btn dds-btn--l dds-btn--secondary dds-main-demo" href="https://builder.snapbuild.ru/" target="_self"><span>Начать сейчас</span></a>
@@ -38,10 +38,7 @@ function closeMenu(): void {
       </div>
     </div>
     <nav id="dds-main-menu" class="dds-main-menu" aria-label="Мобильная навигация" :aria-hidden="!isMenuOpen">
-      <a class="dds-main-menu-link" href="#use-cases" @click="closeMenu"><span>Возможности</span></a>
-      <a class="dds-main-menu-link" href="#process" @click="closeMenu"><span>Продукт</span></a>
-      <a class="dds-main-menu-link" href="#features" @click="closeMenu"><span>Безопасность</span></a>
-      <a class="dds-main-menu-link" href="#faq" @click="closeMenu"><span>FAQ</span></a>
+      <a v-for="link in primaryNavigationLinks" :key="link.href" class="dds-main-menu-link" :href="link.href" @click="closeMenu"><span>{{ link.label }}</span></a>
       <a class="dds-btn dds-btn--l dds-btn--secondary" href="https://builder.snapbuild.ru/"><span>Начать сейчас</span></a>
     </nav>
   </header>

@@ -1,6 +1,7 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, expect, it, vi } from 'vitest'
 import LandingHeader from '../app/components/landing/Header.vue'
+import LandingFooter from '../app/components/landing/Footer.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
 import LandingRoleScenarios from '../app/components/landing/RoleScenarios.vue'
 import LandingImplementation from '../app/components/landing/Implementation.vue'
@@ -44,6 +45,20 @@ describe('landing interactions', () => {
     expect(burger.attributes('aria-expanded')).toBe('true')
     await wrapper.get('.dds-main-menu-link').trigger('click')
     expect(burger.attributes('aria-expanded')).toBe('false')
+  })
+
+  it('keeps desktop, mobile and footer anchors aligned with the landing sections', async () => {
+    const header = await mountSuspended(LandingHeader)
+    const footer = await mountSuspended(LandingFooter)
+    const primaryTargets = ['#use-cases', '#scenarios', '#implementation', '#effect', '#customer-stories', '#faq']
+
+    expect(header.findAll('.dds-main-link').map(link => link.attributes('href'))).toEqual(primaryTargets)
+    expect(header.findAll('.dds-main-menu-link').map(link => link.attributes('href'))).toEqual(primaryTargets)
+    expect(footer.findAll('.dds-footer-col:first-child .dds-footer-link').map(link => link.attributes('href'))).toEqual([
+      ...primaryTargets,
+      '#features',
+      '#roadmap',
+    ])
   })
 
   it('applies the scrolled header state after the page moves', async () => {

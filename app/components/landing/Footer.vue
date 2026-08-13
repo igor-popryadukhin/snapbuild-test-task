@@ -1,6 +1,6 @@
 <!-- Renders the landing footer and shared primary navigation. -->
 <script setup lang="ts">
-import { navigationLinks } from '~/data/landing'
+import { footerNavigationLinks } from '~/data/landing'
 </script>
 <template>
 <footer id="footer" class="footer dds-footer">
@@ -13,7 +13,7 @@ import { navigationLinks } from '~/data/landing'
         <div class="dds-footer-col">
           <p class="dds-footer-col-title">Навигация</p>
           <div class="dds-footer-list">
-            <a v-for="link in navigationLinks" :key="link.href" class="dds-footer-link" :href="link.href"><span>{{ link.label }}</span></a>
+            <a v-for="link in footerNavigationLinks" :key="link.href" class="dds-footer-link" :href="link.href"><span>{{ link.label }}</span></a>
           </div>
         </div>
         <div class="dds-footer-col">
@@ -22,7 +22,6 @@ import { navigationLinks } from '~/data/landing'
 
 
             <a class="dds-footer-link dds-footer-link--block" href="https://snapbuild.ru/privacy" target="_blank" rel="noopener noreferrer"><span>Политика конфиденциальности</span></a>
-            <a class="dds-footer-link" href="#faq"><span>FAQ</span></a>
           </div>
         </div>
         <div class="dds-footer-col">

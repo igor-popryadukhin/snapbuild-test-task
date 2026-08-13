@@ -215,11 +215,21 @@ export const useCaseTabs = [
   ] },
 ] as const satisfies readonly UseCaseTab[]
 
-export const navigationLinks = [
-  { label: 'Продукт', href: '#process' },
+/** Primary landing destinations shared by desktop and mobile navigation. */
+export const primaryNavigationLinks = [
   { label: 'Возможности', href: '#use-cases' },
-  { label: 'Безопасность', href: '#features' },
+  { label: 'Сценарии', href: '#scenarios' },
+  { label: 'Внедрение', href: '#implementation' },
+  { label: 'Эффект', href: '#effect' },
+  { label: 'Истории', href: '#customer-stories' },
   { label: 'FAQ', href: '#faq' },
+] as const satisfies readonly NavigationLink[]
+
+/** Extended footer navigation built on the same primary destinations. */
+export const footerNavigationLinks = [
+  ...primaryNavigationLinks,
+  { label: 'Безопасность', href: '#features' },
+  { label: 'Roadmap', href: '#roadmap' },
 ] as const satisfies readonly NavigationLink[]
 
 export const faqItems = [
