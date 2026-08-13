@@ -1,4 +1,48 @@
-import type { RoleScenario, UseCaseTab } from '~/types/landing'
+import type { ImplementationStep, RoleScenario, UseCaseTab } from '~/types/landing'
+
+/** Ordered implementation phases shown without requiring client-side interaction. */
+export const implementationSteps = [
+  {
+    id: 'audit',
+    title: 'Аудит бренда и процессов',
+    participants: 'Команда бренда, маркетинг, Снэпбилд',
+    duration: '3–5 рабочих дней',
+    description: 'Разбираем дизайн-систему, типовые форматы, роли и текущий путь согласования материалов.',
+    result: 'Карта сценариев и план внедрения',
+  },
+  {
+    id: 'configuration',
+    title: 'Настройка дизайн-системы',
+    participants: 'Дизайн-команда и Снэпбилд',
+    duration: '1–2 недели',
+    description: 'Переносим компоненты, шрифты, цвета и правила композиции в защищённое пространство компании.',
+    result: 'Рабочая бренд-система в платформе',
+  },
+  {
+    id: 'pilot',
+    title: 'Пилот на реальной задаче',
+    participants: 'Рабочая группа заказчика',
+    duration: '1 неделя',
+    description: 'Собираем материалы для выбранного сценария, проверяем качество и уточняем правила вместе с командой.',
+    result: 'Проверенный процесс и готовые материалы',
+  },
+  {
+    id: 'launch',
+    title: 'Обучение и запуск команды',
+    participants: 'Пользователи, администраторы, Снэпбилд',
+    duration: '2–3 рабочих дня',
+    description: 'Настраиваем доступы, проводим обучение по ролям и передаём инструкции для самостоятельной работы.',
+    result: 'Команда работает в Снэпбилде',
+  },
+  {
+    id: 'support',
+    title: 'Сопровождение и развитие',
+    participants: 'Владелец системы и Снэпбилд',
+    duration: 'Постоянно',
+    description: 'Следим за использованием, добавляем новые сценарии и обновляем правила вместе с развитием бренда.',
+    result: 'Масштабирование без потери контроля',
+  },
+] as const satisfies readonly ImplementationStep[]
 
 /** Role-based workflows used by the interactive scenarios section. */
 export const roleScenarios = [

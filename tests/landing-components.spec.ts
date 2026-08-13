@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import LandingHeader from '../app/components/landing/Header.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
 import LandingRoleScenarios from '../app/components/landing/RoleScenarios.vue'
+import LandingImplementation from '../app/components/landing/Implementation.vue'
 import LandingFaq from '../app/components/landing/Faq.vue'
 
 describe('landing interactions', () => {
@@ -47,5 +48,16 @@ describe('landing interactions', () => {
     expect(controls).toHaveLength(8)
     await controls[0]!.setValue(true)
     expect((controls[0]!.element as HTMLInputElement).checked).toBe(true)
+  })
+
+  it('renders every implementation stage and its accountable outcome without interaction', async () => {
+    const wrapper = await mountSuspended(LandingImplementation)
+    const steps = wrapper.findAll('.implementation__step')
+
+    expect(steps).toHaveLength(5)
+    expect(steps[0]!.text()).toContain('Аудит бренда и процессов')
+    expect(steps[0]!.text()).toContain('Карта сценариев и план внедрения')
+    expect(steps[4]!.text()).toContain('Масштабирование без потери контроля')
+    expect(wrapper.get('.implementation__footer a').attributes('href')).toBe('https://t.me/ochen_darya')
   })
 })

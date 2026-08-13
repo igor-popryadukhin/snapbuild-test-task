@@ -24,3 +24,13 @@ export interface RoleScenario {
   readonly result: string
   readonly accent: string
 }
+
+/** A sequential phase of introducing Snapbuild into a corporate workflow. */
+export interface ImplementationStep {
+  readonly id: string
+  readonly title: string
+  readonly participants: string
+  readonly duration: string
+  readonly description: string
+  readonly result: string
+}
