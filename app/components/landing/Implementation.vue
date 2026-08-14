@@ -34,7 +34,7 @@ import { implementationSteps } from '~/data/landing'
 
       <footer class="implementation__footer">
         <p>Покажем, как этот план будет выглядеть для вашей команды.</p>
-        <a class="dds-launch-btn" href="https://t.me/ochen_darya" target="_blank" rel="noopener noreferrer"><span class="dds-launch-btn-text">Запросить демонстрацию</span></a>
+        <a class="dds-launch-btn ui-external-cta" href="https://t.me/ochen_darya" target="_blank" rel="noopener noreferrer"><span class="dds-launch-btn-text">Запросить демонстрацию</span></a>
       </footer>
     </div>
   </section>

@@ -6,6 +6,7 @@ import type {
   FaqItem, RoadmapItem, ProcessCard, SecurityFeature, LogoItem, ComparisonRow, NavigationLink,
   RoleScenario,
   UseCaseTab,
+  CtaBenefit,
 } from '~/types/landing'
 
 /** Illustrative workflows; these entries are product scenarios, not verified testimonials. */
@@ -272,11 +273,11 @@ export const securityFeatures = [
 ] as const satisfies readonly SecurityFeature[]
 
 export const logos = [
-  { id: 'one', image: 'assets/images/5cd01de0b6a5e001.svg', className: 'dds-marquee-item-3' },
-  { id: 'two', image: 'assets/images/ee341193d7cf46d6.svg', className: 'dds-marquee-item-4' },
-  { id: 'avito', image: 'assets/images/logo-avito.svg', className: 'dds-marquee-item-7' },
-  { id: 'cian', image: 'assets/images/logo-cian.svg', className: 'dds-marquee-item-8' },
-  { id: 'lenta', image: 'assets/images/logo-lenta.svg', className: 'dds-marquee-item-10' },
+  { id: 'ozon', image: 'assets/images/5cd01de0b6a5e001.svg', className: 'dds-marquee-item-3', name: 'Озон' },
+  { id: 'samokat', image: 'assets/images/ee341193d7cf46d6.svg', className: 'dds-marquee-item-4', name: 'Самокат' },
+  { id: 'avito', image: 'assets/images/logo-avito.svg', className: 'dds-marquee-item-7', name: 'Авито' },
+  { id: 'cian', image: 'assets/images/logo-cian.svg', className: 'dds-marquee-item-8', name: 'ЦИАН' },
+  { id: 'lenta', image: 'assets/images/logo-lenta.svg', className: 'dds-marquee-item-10', name: 'Лента' },
 ] as const satisfies readonly LogoItem[]
 
 export const comparisonRows: readonly ComparisonRow[] = [
@@ -285,3 +286,22 @@ export const comparisonRows: readonly ComparisonRow[] = [
   { id: 'editor', label: 'Визуальный редактор', values: ['+ ИИ', '—', '', '—', '—'], checks: [0, 2] },
   { id: 'skills', label: 'Требуемые навыки', values: ['Нет', 'Промпты + код', 'Дизайн', 'Разработка', 'Полная команда'] },
 ] as const
+
+/** Headline benefits repeated in the final call-to-action section. */
+export const ctaBenefits = [
+  {
+    id: 'design-system',
+    title: 'Дизайн-система — ядро платформы',
+    description: 'Ваши компоненты, цвета и шрифты применяются автоматически в каждой генерации — от лендинга до презентации.',
+  },
+  {
+    id: 'full-set',
+    title: 'Полный комплект из одной идеи',
+    description: 'Сайт, баннеры, изображения и презентация собираются из одного запроса — до 24 версий под каналы и сегменты.',
+  },
+  {
+    id: 'ready-plan',
+    title: 'Запуск по готовому плану',
+    description: 'Аудит бренда, настройка системы и пилот на реальной задаче: от 3–5 рабочих дней до первых материалов.',
+  },
+] as const satisfies readonly CtaBenefit[]

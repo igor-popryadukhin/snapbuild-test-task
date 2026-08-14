@@ -1,16 +1,6 @@
-<!-- Presents clearly labelled illustrative customer workflows with accessible tab navigation. -->
+<!-- Presents clearly labelled illustrative customer workflows as a static card grid. -->
 <script setup lang="ts">
-import { computed } from 'vue'
 import { customerStories } from '~/data/landing'
-
-const { activeIndex, select } = useScenarioTabs(customerStories.length)
-const activeStory = computed(() => customerStories[activeIndex.value]!)
-const activeStoryImage = computed(() => useAssetUrl(activeStory.value.image))
-const storyTabs = customerStories.map(story => ({ id: story.id, label: story.company }))
-const activeStoryId = computed({
-  get: () => activeStory.value.id,
-  set: (id: string) => select(customerStories.findIndex(story => story.id === id)),
-})
 
 </script>
 
@@ -24,57 +14,47 @@ const activeStoryId = computed({
         title-id="customer-stories-title"
       />
 
-      <div class="customer-stories__navigation">
-        <UiTabList v-model="activeStoryId" :items="storyTabs" label="Сценарии команд" panel-id-prefix="customer-story">
-          <template #tab="{ item }"><span>{{ item.label }}</span></template>
-        </UiTabList>
-      </div>
+      <div class="customer-stories__grid">
+        <article
+          v-for="story in customerStories"
+          :key="story.id"
+          class="customer-stories__card"
+          :aria-labelledby="`customer-story-title-${story.id}`"
+        >
+          <div class="customer-stories__portrait">
+            <img
+              :src="useAssetUrl(story.image)"
+              :alt="story.imageAlt"
+              width="720"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
 
-      <div class="customer-stories__layout">
-        <div class="customer-stories__panel-shell">
-          <article
-            :id="`customer-story-panel-${activeStory.id}`"
-            :key="activeStory.id"
-            class="customer-stories__panel"
-            role="tabpanel"
-            :aria-labelledby="`customer-story-tab-${activeStory.id}`"
-          >
-            <div class="customer-stories__identity">
-              <div class="customer-stories__portrait">
-                <img
-                  :src="activeStoryImage"
-                  :alt="activeStory.imageAlt"
-                  width="720"
-                  height="900"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-              <div class="customer-stories__person">
-                <p>{{ activeStory.role }}</p>
-                <p>{{ activeStory.company }}</p>
-              </div>
-            </div>
+          <div class="customer-stories__person">
+            <p>{{ story.role }}</p>
+            <p>{{ story.company }}</p>
+          </div>
 
-            <div class="customer-stories__content">
-              <p class="customer-stories__scenario-label">Демонстрационный сценарий</p>
-              <h3>{{ activeStory.title }}</h3>
-              <dl class="customer-stories__details">
-                <div>
-                  <dt>Исходная задача</dt>
-                  <dd>{{ activeStory.task }}</dd>
-                </div>
-                <div>
-                  <dt>Результат</dt>
-                  <dd>{{ activeStory.result }}</dd>
-                </div>
-              </dl>
-              <ul class="customer-stories__deliverables" aria-label="Состав результата">
-                <li v-for="item in activeStory.deliverables" :key="item">{{ item }}</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+          <div class="customer-stories__content">
+            <p class="customer-stories__scenario-label">Демонстрационный сценарий</p>
+            <h3 :id="`customer-story-title-${story.id}`">{{ story.title }}</h3>
+            <dl class="customer-stories__details">
+              <div>
+                <dt>Исходная задача</dt>
+                <dd>{{ story.task }}</dd>
+              </div>
+              <div>
+                <dt>Результат</dt>
+                <dd>{{ story.result }}</dd>
+              </div>
+            </dl>
+            <ul class="customer-stories__deliverables" aria-label="Состав результата">
+              <li v-for="item in story.deliverables" :key="item">{{ item }}</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>

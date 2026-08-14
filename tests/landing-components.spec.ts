@@ -106,26 +106,28 @@ describe('landing interactions', () => {
     wrapper.unmount()
   })
 
-  it('presents illustrative customer stories with accessible controls', async () => {
-    const wrapper = await mountSuspended(LandingCustomerStories, { attachTo: document.body })
-    const tabs = wrapper.findAll('[role="tab"]')
+  it('presents illustrative customer stories as a static card grid', async () => {
+    const wrapper = await mountSuspended(LandingCustomerStories)
+    const cards = wrapper.findAll('.customer-stories__card')
 
-    expect(tabs).toHaveLength(3)
+    expect(cards).toHaveLength(3)
+    expect(wrapper.findAll('[role="tab"]')).toHaveLength(0)
     expect(wrapper.get('.ui-section-header__description').text()).toContain('не подтверждённые отзывы')
-    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Демонстрационный сценарий')
-    expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-marketing.webp')
+    expect(wrapper.findAll('.customer-stories__scenario-label').map(node => node.text())).toEqual([
+      'Демонстрационный сценарий',
+      'Демонстрационный сценарий',
+      'Демонстрационный сценарий',
+    ])
+    expect(wrapper.findAll('.customer-stories__portrait img').map(img => img.attributes('src'))).toEqual([
+      expect.stringContaining('customer-story-marketing.webp'),
+      expect.stringContaining('customer-story-sales.webp'),
+      expect.stringContaining('customer-story-product.webp'),
+    ])
     expect(wrapper.get('.customer-stories__portrait img').attributes('width')).toBe('720')
     expect(wrapper.get('.customer-stories__portrait img').attributes('height')).toBe('900')
-    expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
-    expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
-
-    await tabs[1]!.trigger('click')
-    expect(tabs[1]!.attributes('aria-selected')).toBe('true')
-    expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-sales.webp')
-
-    await tabs[1]!.trigger('keydown', { key: 'End' })
-    expect(tabs[2]!.attributes('aria-selected')).toBe('true')
-    expect(document.activeElement).toBe(tabs[2]!.element)
+    expect(cards[0]!.text()).toContain('Исходная задача')
+    expect(cards[0]!.text()).toContain('Результат')
+    expect(cards[0]!.text()).toContain('Финтех-команда')
     wrapper.unmount()
   })
 
@@ -188,12 +190,17 @@ describe('landing interactions', () => {
     expect(comparison.findAll('.sds-compare-row')).toHaveLength(5)
   })
 
-  it('uses one marquee track with a repeated logo sequence', async () => {
+  it('uses one marquee track with a repeated logo sequence and labels logos as illustrative', async () => {
     const wrapper = await mountSuspended(LandingLogos)
 
     expect(wrapper.findAll('.dds-marquee-track')).toHaveLength(1)
     expect(wrapper.findAll('.dds-marquee-content')).toHaveLength(2)
     expect(wrapper.findAll('.dds-marquee-item')).toHaveLength(10)
+    expect(wrapper.findAll('.dds-marquee-caption').map(node => node.text())).toEqual([
+      'Озон', 'Самокат', 'Авито', 'ЦИАН', 'Лента', 'Озон', 'Самокат', 'Авито', 'ЦИАН', 'Лента',
+    ])
+    expect(wrapper.get('.logos__disclaimer').text()).toContain('иллюстративных целях')
+    expect(wrapper.get('#logos').attributes('aria-label')).toBe('Логотипы компаний — иллюстрация')
   })
 
   it('renders every implementation stage and its accountable outcome without interaction', async () => {
@@ -211,6 +218,7 @@ describe('landing interactions', () => {
     const wrapper = await mountSuspended(LandingMeasurableEffect)
 
     expect(wrapper.findAll('.measurable-effect__metric')).toHaveLength(3)
+    expect(wrapper.findAll('.measurable-effect__metric strong').map(node => node.text())).toEqual(['6×', '90%', '24'])
     expect(wrapper.get('.ui-section-header__description').text()).toContain('пример')
     expect(wrapper.findAll('.measurable-effect__row')).toHaveLength(3)
     expect(wrapper.get('.measurable-effect__comparison').text()).toContain('До и со Снэпбилдом')

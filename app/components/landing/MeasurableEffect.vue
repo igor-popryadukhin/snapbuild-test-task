@@ -16,7 +16,7 @@ import { effectComparisons, effectMetrics } from '~/data/landing'
       <dl class="measurable-effect__metrics" aria-label="Пример целевых показателей">
         <div v-for="metric in effectMetrics" :key="metric.id" class="measurable-effect__metric">
           <dt>
-            <strong>{{ metric.value }}</strong>
+            <UiCountUpValue :value="metric.value" />
             <span>{{ metric.label }}</span>
           </dt>
           <dd>{{ metric.context }}</dd>

@@ -52,7 +52,10 @@ export interface ProcessCard { readonly id: string; readonly title: string; read
 export interface SecurityFeature { readonly id: string; readonly title: string; readonly description: string; readonly image: string; readonly mobileImage: string }
 
 /** A customer logo used by the repeating marquee. */
-export interface LogoItem { readonly id: string; readonly image: string; readonly className: string }
+export interface LogoItem { readonly id: string; readonly image: string; readonly className: string; readonly name: string }
+
+/** A headline benefit repeated in the final call-to-action section. */
+export interface CtaBenefit { readonly id: string; readonly title: string; readonly description: string }
 
 /** One labelled row in the product comparison table. */
 export interface ComparisonRow { readonly id: string; readonly label: string; readonly values: readonly string[]; readonly checks?: readonly number[] }
