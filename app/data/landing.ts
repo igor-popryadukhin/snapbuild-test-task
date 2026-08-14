@@ -13,7 +13,7 @@ export const customerStories = [
   {
     id: 'campaign',
     image: 'assets/images/customer-story-marketing.webp',
-    imageAlt: 'Портрет руководителя маркетинга в современном офисе',
+    imageAlt: 'Иллюстративный портрет руководителя маркетинга в современном офисе',
     role: 'Руководитель маркетинга',
     company: 'Финтех-команда',
     title: 'Запуск кампании без разрыва между каналами',
@@ -24,7 +24,7 @@ export const customerStories = [
   {
     id: 'sales',
     image: 'assets/images/customer-story-sales.webp',
-    imageAlt: 'Портрет менеджера по продажам в современном офисе',
+    imageAlt: 'Иллюстративный портрет менеджера по продажам в современном офисе',
     role: 'Менеджер по продажам',
     company: 'B2B-сервис',
     title: 'Предложение, собранное под контекст встречи',
@@ -35,7 +35,7 @@ export const customerStories = [
   {
     id: 'product',
     image: 'assets/images/customer-story-product.webp',
-    imageAlt: 'Портрет продуктового дизайнера в современной студии',
+    imageAlt: 'Иллюстративный портрет продуктового дизайнера в современной студии',
     role: 'Продуктовый дизайнер',
     company: 'Цифровой продукт',
     title: 'Гипотеза становится наглядной до разработки',
@@ -222,6 +222,7 @@ export const primaryNavigationLinks = [
   { label: 'Внедрение', href: '#implementation' },
   { label: 'Эффект', href: '#effect' },
   { label: 'Истории', href: '#customer-stories' },
+  { label: 'Демо', href: '#demo-request' },
   { label: 'FAQ', href: '#faq' },
 ] as const satisfies readonly NavigationLink[]
 

@@ -18,12 +18,15 @@ import LandingLogos from '../app/components/landing/Logos.vue'
 
 describe('landing interactions', () => {
   it('validates and completes the client-only demo request', async () => {
-    const wrapper = await mountSuspended(LandingDemoRequest)
+    const wrapper = await mountSuspended(LandingDemoRequest, { attachTo: document.body })
     vi.useFakeTimers()
 
     await wrapper.get('form').trigger('submit')
     expect(wrapper.findAll('.demo-request__error')).toHaveLength(3)
+    expect(wrapper.get('[role="alert"]').text()).toContain('Проверьте обязательные поля')
     expect(wrapper.get('#demo-email').attributes('aria-invalid')).toBe('true')
+    expect(wrapper.get('#demo-name').attributes('required')).toBeDefined()
+    expect(document.activeElement).toBe(wrapper.get('#demo-name').element)
 
     await wrapper.get('#demo-name').setValue('Игорь')
     await wrapper.get('#demo-email').setValue('igor@company.ru')
@@ -33,9 +36,12 @@ describe('landing interactions', () => {
 
     await vi.runAllTimersAsync()
     expect(wrapper.get('[role="status"]').text()).toContain('Подготовим демонстрацию')
+    expect(document.activeElement).toBe(wrapper.get('[role="status"]').element)
     await wrapper.get('[role="status"] button').trigger('click')
     expect(wrapper.find('form').exists()).toBe(true)
+    expect(document.activeElement).toBe(wrapper.get('#demo-name').element)
     vi.useRealTimers()
+    wrapper.unmount()
   })
 
   it('opens and closes the mobile navigation from the keyboard', async () => {
@@ -51,7 +57,7 @@ describe('landing interactions', () => {
   it('keeps desktop, mobile and footer anchors aligned with the landing sections', async () => {
     const header = await mountSuspended(LandingHeader)
     const footer = await mountSuspended(LandingFooter)
-    const primaryTargets = ['#use-cases', '#scenarios', '#implementation', '#effect', '#customer-stories', '#faq']
+    const primaryTargets = ['#use-cases', '#scenarios', '#implementation', '#effect', '#customer-stories', '#demo-request', '#faq']
 
     expect(header.findAll('.dds-main-link').map(link => link.attributes('href'))).toEqual(primaryTargets)
     expect(header.findAll('.dds-main-menu-link').map(link => link.attributes('href'))).toEqual(primaryTargets)
@@ -77,9 +83,12 @@ describe('landing interactions', () => {
     const wrapper = await mountSuspended(LandingUseCases)
     const cards = wrapper.findAll('.dds-tabs-card')
 
+    expect(wrapper.findAll('.dds-tabs-media')).toHaveLength(1)
+    expect(wrapper.get('.dds-tabs-media').attributes('loading')).toBe('lazy')
     await cards[6]!.trigger('keydown', { key: 'Enter' })
     expect(cards[6]!.classes()).toContain('dds-tabs-card--active')
     expect(wrapper.get('.dds-tabs-media--active').attributes('data-media')).toBe('tab2-item3')
+    expect(wrapper.findAll('.dds-tabs-media')).toHaveLength(1)
   })
 
   it('switches role scenarios with mouse and keyboard while exposing tab state', async () => {
@@ -102,7 +111,8 @@ describe('landing interactions', () => {
     const tabs = wrapper.findAll('[role="tab"]')
 
     expect(tabs).toHaveLength(3)
-    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Рабочий сценарий')
+    expect(wrapper.get('.ui-section-header__description').text()).toContain('не подтверждённые отзывы')
+    expect(wrapper.get('.customer-stories__scenario-label').text()).toBe('Демонстрационный сценарий')
     expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-marketing.webp')
     expect(wrapper.get('.customer-stories__portrait img').attributes('width')).toBe('720')
     expect(wrapper.get('.customer-stories__portrait img').attributes('height')).toBe('900')
@@ -124,7 +134,7 @@ describe('landing interactions', () => {
       { component: LandingRoleScenarios, eyebrow: 'Сценарии использования', title: 'Один инструмент для всей команды', description: 'От первого брифа' },
       { component: LandingImplementation, eyebrow: 'Внедрение', title: 'Как проходит внедрение', description: 'Начинаем с ваших процессов' },
       { component: LandingMeasurableEffect, eyebrow: 'Измеримый эффект', title: 'Ценность, которую видно в процессе', description: 'На пилоте' },
-      { component: LandingCustomerStories, eyebrow: 'Истории клиентов', title: 'Как команды применяют Снэпбилд', description: 'Три рабочих маршрута' },
+      { component: LandingCustomerStories, eyebrow: 'Истории клиентов', title: 'Как команды применяют Снэпбилд', description: 'Три демонстрационных маршрута' },
       { component: LandingDemoRequest, eyebrow: 'Запросить демо', title: 'Покажем, как собрать материалы в вашем стиле', description: 'Оставьте контакты' },
       { component: LandingFaq, title: 'Частые вопросы', description: 'Ответы о возможностях' },
     ]

@@ -24,14 +24,18 @@ export function useDemoRequestForm() {
     errors.value = { ...errors.value, [field]: undefined }
   }
 
-  /** Validates locally and simulates processing without making a network request. */
-  async function submit(): Promise<void> {
+  /**
+   * Validates locally and simulates processing without making a network request.
+   * @returns `true` when processing reached the success state; otherwise `false`.
+   */
+  async function submit(): Promise<boolean> {
     errors.value = validateDemoRequest(values)
-    if (Object.keys(errors.value).length > 0) return
+    if (Object.keys(errors.value).length > 0) return false
 
     status.value = 'submitting'
     await new Promise<void>(resolve => window.setTimeout(resolve, 450))
     status.value = 'success'
+    return true
   }
 
   /** Restores an empty form for a new request. */

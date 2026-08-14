@@ -19,9 +19,8 @@
 .ui-section-header__title { color: var(--color-ink); font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; }
 .ui-section-header__description { color: var(--color-muted); font-size: 18px; line-height: 1.4; }
 // Pill tabs render through the design-token button theme: the global
-// `button:not(.tab)` rules (including the generated large-screen overrides)
-// consume --btn-* variables, so the tablist themes those variables instead of
-// fighting the cascade.
+// `button:not(.tab)` rules consume --btn-* variables, so the tablist themes
+// those variables instead of fighting the cascade.
 .ui-tab-list {
   display: flex;
   align-items: flex-start;

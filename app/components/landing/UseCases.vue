@@ -1,10 +1,8 @@
 <!-- Presents five content formats with keyboard-accessible cards and timed media playback. -->
 <script setup lang="ts">
 import { useCaseTabs } from '~/data/landing'
-import type { UseCaseItem } from '~/types/landing'
 
 const { activeItem, activeItemIndex, activeTabIndex, progress, select } = useUseCaseCarousel(useCaseTabs)
-const flatUseCaseItems: readonly UseCaseItem[] = useCaseTabs.flatMap(tab => [...tab.items])
 
 /** Selects a tab from its keyboard-operable visual label.
  * @param event Keyboard event raised by a tab label.
@@ -93,15 +91,17 @@ function selectCardFromKeyboard(event: KeyboardEvent, tabIndex: number, itemInde
         </div>
         <div class="dds-tabs-panel">
           <img
-            v-for="item in flatUseCaseItems"
-            :key="item.id"
+            v-if="activeItem"
+            :key="activeItem.id"
             class="dds-tabs-media"
-            :class="[{ 'dds-tabs-media--active': activeItem?.id === item.id }, `dds-tabs-media--${item.id}`]"
-            :data-media="item.id"
-            :src="useAssetUrl(item.image)"
+            :class="['dds-tabs-media--active', `dds-tabs-media--${activeItem.id}`]"
+            :data-media="activeItem.id"
+            :src="useAssetUrl(activeItem.image)"
             alt=""
             width="2880"
             height="1620"
+            loading="lazy"
+            decoding="async"
           >
         </div>
       </div>

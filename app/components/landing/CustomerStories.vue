@@ -20,7 +20,7 @@ const activeStoryId = computed({
       <UiSectionHeader
         eyebrow="Истории клиентов"
         title="Как команды применяют Снэпбилд"
-        description="Три рабочих маршрута — от исходной задачи до материала, готового к следующему решению."
+        description="Три демонстрационных маршрута — примеры применения продукта, а не подтверждённые отзывы клиентов."
         title-id="customer-stories-title"
       />
 
@@ -57,7 +57,7 @@ const activeStoryId = computed({
             </div>
 
             <div class="customer-stories__content">
-              <p class="customer-stories__scenario-label">Рабочий сценарий</p>
+              <p class="customer-stories__scenario-label">Демонстрационный сценарий</p>
               <h3>{{ activeStory.title }}</h3>
               <dl class="customer-stories__details">
                 <div>
