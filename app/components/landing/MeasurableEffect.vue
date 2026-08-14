@@ -6,11 +6,12 @@ import { effectComparisons, effectMetrics } from '~/data/landing'
 <template>
   <section id="effect" class="measurable-effect" aria-labelledby="effect-title">
     <div class="measurable-effect__inner">
-      <header class="measurable-effect__header">
-        <p class="measurable-effect__label">Измеримый эффект</p>
-        <h2 id="effect-title" class="measurable-effect__title">Ценность, которую видно в процессе</h2>
-        <p class="measurable-effect__intro">На пилоте фиксируем показатели до и после внедрения. Ниже — пример оценки скорости, консистентности и масштаба.</p>
-      </header>
+      <UiSectionHeader
+        eyebrow="Измеримый эффект"
+        title="Ценность, которую видно в процессе"
+        description="На пилоте фиксируем показатели до и после внедрения. Ниже — пример оценки скорости, консистентности и масштаба."
+        title-id="effect-title"
+      />
 
       <dl class="measurable-effect__metrics" aria-label="Пример целевых показателей">
         <div v-for="metric in effectMetrics" :key="metric.id" class="measurable-effect__metric">

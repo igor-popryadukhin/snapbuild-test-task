@@ -1,5 +1,6 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, expect, it, vi } from 'vitest'
+import type { Component } from 'vue'
 import LandingHeader from '../app/components/landing/Header.vue'
 import LandingFooter from '../app/components/landing/Footer.vue'
 import LandingUseCases from '../app/components/landing/UseCases.vue'
@@ -118,6 +119,42 @@ describe('landing interactions', () => {
     wrapper.unmount()
   })
 
+  it('renders all landing section headers through the shared UiSectionHeader', async () => {
+    const cases: Array<{ component: Component; eyebrow?: string; title: string; description: string }> = [
+      { component: LandingRoleScenarios, eyebrow: 'Сценарии использования', title: 'Один инструмент\nдля всей команды', description: 'От первого брифа' },
+      { component: LandingImplementation, eyebrow: 'Внедрение', title: 'Как проходит внедрение', description: 'Начинаем с ваших процессов' },
+      { component: LandingMeasurableEffect, eyebrow: 'Измеримый эффект', title: 'Ценность, которую видно в процессе', description: 'На пилоте' },
+      { component: LandingCustomerStories, eyebrow: 'Истории клиентов', title: 'Как команды применяют Снэпбилд', description: 'Три рабочих маршрута' },
+      { component: LandingDemoRequest, eyebrow: 'Запросить демо', title: 'Покажем, как собрать материалы в вашем стиле', description: 'Оставьте контакты' },
+      { component: LandingFaq, title: 'Частые вопросы', description: 'Ответы о возможностях' },
+    ]
+
+    for (const { component, eyebrow, title, description } of cases) {
+      const wrapper = await mountSuspended(component)
+      const header = wrapper.get('.ui-section-header')
+
+      expect(header.get('h2').text()).toBe(title)
+      expect(header.get('.ui-section-header__description').text()).toContain(description)
+      if (eyebrow) {
+        expect(header.get('.ui-section-header__eyebrow').text()).toBe(eyebrow)
+      } else {
+        expect(header.find('.ui-section-header__eyebrow').exists()).toBe(false)
+      }
+      wrapper.unmount()
+    }
+  })
+
+  it('stacks the demo request header and form vertically', async () => {
+    const wrapper = await mountSuspended(LandingDemoRequest)
+    const inner = wrapper.get('.demo-request__inner')
+
+    expect(wrapper.find('.demo-request__intro').exists()).toBe(false)
+    expect(wrapper.find('.demo-request__eyebrow').exists()).toBe(false)
+    expect(inner.element.children[0]?.classList.contains('ui-section-header')).toBe(true)
+    expect(inner.element.children[1]?.classList.contains('demo-request__card')).toBe(true)
+    expect(wrapper.get('.ui-section-header__eyebrow').text()).toBe('Запросить демо')
+  })
+
   it('exposes every FAQ item as a native checkbox disclosure', async () => {
     const wrapper = await mountSuspended(LandingFaq)
     const controls = wrapper.findAll('.dds-accordion-state')
@@ -164,7 +201,7 @@ describe('landing interactions', () => {
     const wrapper = await mountSuspended(LandingMeasurableEffect)
 
     expect(wrapper.findAll('.measurable-effect__metric')).toHaveLength(3)
-    expect(wrapper.get('.measurable-effect__intro').text()).toContain('пример')
+    expect(wrapper.get('.ui-section-header__description').text()).toContain('пример')
     expect(wrapper.findAll('.measurable-effect__row')).toHaveLength(3)
     expect(wrapper.get('.measurable-effect__comparison').text()).toContain('До и со Снэпбилдом')
     expect(wrapper.text()).toContain('24 версии из одной согласованной идеи')

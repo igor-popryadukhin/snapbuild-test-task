@@ -16,11 +16,12 @@ const activeScenarioId = computed({
 <template>
   <section id="scenarios" class="role-scenarios" aria-labelledby="scenarios-title">
     <div class="role-scenarios__inner">
-      <header class="role-scenarios__header">
-        <p class="role-scenarios__label">Сценарии использования</p>
-        <h2 id="scenarios-title" class="role-scenarios__title">Один инструмент<br>для всей команды</h2>
-        <p class="role-scenarios__intro">От первого брифа до готового материала — каждый участник работает со своей задачей, а бренд остаётся целостным.</p>
-      </header>
+      <UiSectionHeader
+        eyebrow="Сценарии использования"
+        :title="'Один инструмент\nдля всей команды'"
+        description="От первого брифа до готового материала — каждый участник работает со своей задачей, а бренд остаётся целостным."
+        title-id="scenarios-title"
+      />
 
       <UiTabList v-model="activeScenarioId" class="role-scenarios__tabs" :items="scenarioTabs" label="Роли в команде" panel-id-prefix="scenario" />
 

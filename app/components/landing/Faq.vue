@@ -10,7 +10,6 @@ const columns = [faqItems.slice(0, 4), faqItems.slice(4)]
     <UiSectionHeader
       title="Частые вопросы"
       description="Ответы о возможностях, интеграции и безопасности платформы"
-      variant="split"
     />
     <div class="dds-accordion-grid">
       <div v-for="(column, index) in columns" :key="index" class="dds-accordion-col">

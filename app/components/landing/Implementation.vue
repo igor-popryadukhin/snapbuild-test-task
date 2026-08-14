@@ -6,11 +6,12 @@ import { implementationSteps } from '~/data/landing'
 <template>
   <section id="implementation" class="implementation" aria-labelledby="implementation-title">
     <div class="implementation__inner">
-      <header class="implementation__header">
-        <p class="implementation__label">Внедрение</p>
-        <h2 id="implementation-title" class="implementation__title">Как проходит внедрение</h2>
-        <p class="implementation__intro">Начинаем с ваших процессов и запускаем команду по понятному плану — с ответственными и результатом на каждом этапе.</p>
-      </header>
+      <UiSectionHeader
+        eyebrow="Внедрение"
+        title="Как проходит внедрение"
+        description="Начинаем с ваших процессов и запускаем команду по понятному плану — с ответственными и результатом на каждом этапе."
+        title-id="implementation-title"
+      />
 
       <ol class="implementation__timeline">
         <li v-for="(step, index) in implementationSteps" :key="step.id" class="implementation__step">

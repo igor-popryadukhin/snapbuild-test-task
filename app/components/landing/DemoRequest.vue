@@ -11,11 +11,12 @@ async function handleSubmit(): Promise<void> {
 <template>
   <section id="demo-request" class="demo-request" aria-labelledby="demo-request-title">
     <div class="demo-request__inner">
-      <header class="demo-request__intro">
-        <p class="demo-request__eyebrow">Запросить демо</p>
-        <h2 id="demo-request-title">Покажем, как собрать материалы в вашем стиле</h2>
-        <p>Оставьте контакты — обсудим задачи вашей команды и покажем подходящий сценарий.</p>
-      </header>
+      <UiSectionHeader
+        eyebrow="Запросить демо"
+        title="Покажем, как собрать материалы в вашем стиле"
+        description="Оставьте контакты — обсудим задачи вашей команды и покажем подходящий сценарий."
+        title-id="demo-request-title"
+      />
 
       <div class="demo-request__card">
         <div v-if="status === 'success'" class="demo-request__success" role="status" tabindex="-1">

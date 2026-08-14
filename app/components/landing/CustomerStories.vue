@@ -17,11 +17,12 @@ const activeStoryId = computed({
 <template>
   <section id="customer-stories" class="customer-stories" aria-labelledby="customer-stories-title">
     <div class="customer-stories__inner">
-      <header class="customer-stories__header">
-        <p class="customer-stories__label">Истории клиентов</p>
-        <h2 id="customer-stories-title">Как команды применяют Снэпбилд</h2>
-        <p class="customer-stories__intro">Три рабочих маршрута — от исходной задачи до материала, готового к следующему решению.</p>
-      </header>
+      <UiSectionHeader
+        eyebrow="Истории клиентов"
+        title="Как команды применяют Снэпбилд"
+        description="Три рабочих маршрута — от исходной задачи до материала, готового к следующему решению."
+        title-id="customer-stories-title"
+      />
 
       <div class="customer-stories__navigation">
         <UiTabList v-model="activeStoryId" :items="storyTabs" label="Сценарии команд" panel-id-prefix="customer-story">

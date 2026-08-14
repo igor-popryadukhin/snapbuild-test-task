@@ -13,11 +13,15 @@
   background-color: rgba(255, 255, 255, .9);
 }
 
-.ui-section-header { display: grid; align-items: start; gap: 20px; }
-.ui-section-header--split { grid-template-columns: minmax(0, 1fr) minmax(240px, .4fr); }
+.ui-section-header { display: grid; grid-template-areas: "eyebrow description" "title description"; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); gap: 24px clamp(40px, 7vw, 108px); align-items: end; margin-bottom: clamp(24px, 3vw, 40px); }
 .ui-section-header__eyebrow, .ui-section-header__title, .ui-section-header__description { margin: 0; }
-.ui-section-header__title { font-size: clamp(40px, 5vw, 72px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
-.ui-section-header__description { color: var(--color-muted); font-size: 18px; line-height: 1.4; }
+.ui-section-header__eyebrow { grid-area: eyebrow; color: #696a70; font-size: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
+.ui-section-header__title { grid-area: title; max-width: 760px; color: var(--color-ink); font-size: clamp(40px, 4.2vw, 60px); font-weight: 500; line-height: 1.02; letter-spacing: -.035em; white-space: pre-line; }
+.ui-section-header__description { grid-area: description; max-width: 400px; padding-bottom: 4px; color: var(--color-muted); font-size: 18px; line-height: 1.4; }
+
+@media (max-width: 1023px) {
+  .ui-section-header { grid-template-columns: minmax(0, 1.35fr) minmax(240px, .75fr); gap: 24px 40px; }
+}
 // Pill tabs render through the design-token button theme: the global
 // `button:not(.tab)` rules (including the generated large-screen overrides)
 // consume --btn-* variables, so the tablist themes those variables instead of
@@ -65,7 +69,11 @@
 .skip-link { position: fixed; z-index: 1000; top: 8px; left: 8px; padding: 10px 14px; border-radius: var(--radius-small); color: var(--color-white); background: var(--color-ink); transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 
-@media (max-width: 767px) { .ui-section-header--split { grid-template-columns: 1fr; } }
+@media (max-width: 767px) {
+  .ui-section-header { display: block; margin-bottom: 24px; }
+  .ui-section-header__eyebrow { margin-bottom: 24px; }
+  .ui-section-header__description { margin-top: 20px; font-size: 16px; }
+}
 
 @include reduced-motion {
   .ui-tab-list__tab { transition: none; }
