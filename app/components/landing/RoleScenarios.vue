@@ -22,7 +22,7 @@ const activeScenarioId = computed({
         <p class="role-scenarios__intro">От первого брифа до готового материала — каждый участник работает со своей задачей, а бренд остаётся целостным.</p>
       </header>
 
-      <UiTabList v-model="activeScenarioId" class="role-scenarios__tabs" :items="scenarioTabs" label="Роли в команде" panel-id-prefix="scenario" tab-class="role-scenarios__tab" active-class="role-scenarios__tab--active" />
+      <UiTabList v-model="activeScenarioId" class="role-scenarios__tabs" :items="scenarioTabs" label="Роли в команде" panel-id-prefix="scenario" />
 
       <div class="role-scenarios__panel-shell">
         <article

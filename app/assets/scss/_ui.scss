@@ -18,7 +18,44 @@
 .ui-section-header__eyebrow, .ui-section-header__title, .ui-section-header__description { margin: 0; }
 .ui-section-header__title { font-size: clamp(40px, 5vw, 72px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
 .ui-section-header__description { color: var(--color-muted); font-size: 18px; line-height: 1.4; }
+// Pill tabs render through the design-token button theme: the global
+// `button:not(.tab)` rules (including the generated large-screen overrides)
+// consume --btn-* variables, so the tablist themes those variables instead of
+// fighting the cascade.
+.ui-tab-list {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(8 / 14.4 * 1vw);
+  overflow-x: auto;
+  scrollbar-width: none;
+  --btn-bg: #f5f5f7;
+  --btn-color: #000;
+  --btn-bg-hover: #ebebee;
+  --btn-color-hover: #000;
+  --btn-bg-focus: #f5f5f7;
+  --btn-color-focus: #000;
+  --btn-radius: 12px;
+  --btn-font-size: calc(16 / 14.4 * 1vw);
+  --btn-font-weight: 500;
+  --btn-letter-spacing: 0;
+  --btn-line-height: 1.5;
+  --btn-padding-block: calc(10 / 14.4 * 1vw);
+  --btn-padding-inline: 10px;
+  --btn-gap: 0;
+}
+.ui-tab-list::-webkit-scrollbar { display: none; }
+.ui-tab-list__tab { flex: 0 0 auto; cursor: pointer; white-space: nowrap; user-select: none; -webkit-user-select: none; transition: background-color 400ms cubic-bezier(.4, 0, .2, 1), color 400ms cubic-bezier(.4, 0, .2, 1), scale 400ms cubic-bezier(.4, 0, .2, 1); }
+.ui-tab-list__tab:active { scale: .975; }
 .ui-tab-list__tab:focus-visible { @include focus-visible; }
+.ui-tab-list__tab[aria-selected="true"] { --btn-bg: #000; --btn-color: #fff; --btn-bg-hover: #000; --btn-color-hover: #fff; --btn-bg-focus: #000; --btn-color-focus: #fff; }
+
+@media (max-width: 1023px) {
+  .ui-tab-list { --btn-padding-block: calc(10 / 8.1 * 1vw); --btn-padding-inline: calc(16 / 8.1 * 1vw); --btn-font-size: calc(16 / 8.1 * 1vw); }
+}
+
+@media (max-width: 767px) {
+  .ui-tab-list { gap: 6px; --btn-padding-block: 6px; --btn-padding-inline: 12px; --btn-font-size: 13px; }
+}
 
 #header.is-menu-open .dds-main-menu { display: flex; }
 #header.is-menu-open .dds-main-burger-icon { border-top-color: transparent; border-bottom-color: transparent; }
@@ -30,4 +67,7 @@
 
 @media (max-width: 767px) { .ui-section-header--split { grid-template-columns: 1fr; } }
 
-@include reduced-motion { .ui-tab-list__tab { transition: none; } }
+@include reduced-motion {
+  .ui-tab-list__tab { transition: none; }
+  .ui-tab-list__tab:active { scale: 1; }
+}

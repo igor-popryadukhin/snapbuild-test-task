@@ -2,7 +2,7 @@
 <script setup lang="ts">
 export interface UiTabItem { readonly id: string; readonly label: string }
 
-const props = withDefaults(defineProps<{ items: readonly UiTabItem[]; label: string; panelIdPrefix: string; tabClass?: string; activeClass?: string }>(), { tabClass: undefined, activeClass: 'is-active' })
+const props = defineProps<{ items: readonly UiTabItem[]; label: string; panelIdPrefix: string }>()
 const model = defineModel<string>({ required: true })
 const buttons = useTemplateRef<HTMLButtonElement[]>('buttons')
 
@@ -39,7 +39,6 @@ function handleKeydown(event: KeyboardEvent, index: number): void {
       :aria-selected="model === item.id"
       :tabindex="model === item.id ? 0 : -1"
       class="ui-tab-list__tab"
-      :class="[tabClass, { [activeClass]: model === item.id }]"
       @click="model = item.id"
       @keydown="handleKeydown($event, index)"
     >

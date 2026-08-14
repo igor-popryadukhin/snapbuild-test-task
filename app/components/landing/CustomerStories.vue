@@ -31,7 +31,7 @@ function move(direction: -1 | 1): void {
       </header>
 
       <div class="customer-stories__navigation">
-        <UiTabList v-model="activeStoryId" class="customer-stories__tabs" :items="storyTabs" label="Сценарии команд" panel-id-prefix="customer-story" tab-class="customer-stories__tab" active-class="customer-stories__tab--active">
+        <UiTabList v-model="activeStoryId" :items="storyTabs" label="Сценарии команд" panel-id-prefix="customer-story">
           <template #tab="{ item }"><span>{{ item.label }}</span></template>
         </UiTabList>
       </div>
