@@ -18,7 +18,7 @@ const activeScenarioId = computed({
     <div class="role-scenarios__inner">
       <UiSectionHeader
         eyebrow="Сценарии использования"
-        :title="'Один инструмент\nдля всей команды'"
+        title="Один инструмент для всей команды"
         description="От первого брифа до готового материала — каждый участник работает со своей задачей, а бренд остаётся целостным."
         title-id="scenarios-title"
       />

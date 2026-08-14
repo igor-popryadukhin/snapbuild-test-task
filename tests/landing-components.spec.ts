@@ -121,7 +121,7 @@ describe('landing interactions', () => {
 
   it('renders all landing section headers through the shared UiSectionHeader', async () => {
     const cases: Array<{ component: Component; eyebrow?: string; title: string; description: string }> = [
-      { component: LandingRoleScenarios, eyebrow: 'Сценарии использования', title: 'Один инструмент\nдля всей команды', description: 'От первого брифа' },
+      { component: LandingRoleScenarios, eyebrow: 'Сценарии использования', title: 'Один инструмент для всей команды', description: 'От первого брифа' },
       { component: LandingImplementation, eyebrow: 'Внедрение', title: 'Как проходит внедрение', description: 'Начинаем с ваших процессов' },
       { component: LandingMeasurableEffect, eyebrow: 'Измеримый эффект', title: 'Ценность, которую видно в процессе', description: 'На пилоте' },
       { component: LandingCustomerStories, eyebrow: 'Истории клиентов', title: 'Как команды применяют Снэпбилд', description: 'Три рабочих маршрута' },
