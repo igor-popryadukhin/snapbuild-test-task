@@ -108,10 +108,9 @@ describe('landing interactions', () => {
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Исходная задача')
     expect(wrapper.get('[role="tabpanel"]').text()).toContain('Результат')
 
-    await wrapper.get('[aria-label="Следующая история"]').trigger('click')
+    await tabs[1]!.trigger('click')
     expect(tabs[1]!.attributes('aria-selected')).toBe('true')
     expect(wrapper.get('.customer-stories__portrait img').attributes('src')).toContain('customer-story-sales.webp')
-    expect(wrapper.get('[aria-live="polite"]').text()).toContain('2 / 3')
 
     await tabs[1]!.trigger('keydown', { key: 'End' })
     expect(tabs[2]!.attributes('aria-selected')).toBe('true')

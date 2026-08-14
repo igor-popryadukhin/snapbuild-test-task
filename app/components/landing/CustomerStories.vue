@@ -12,13 +12,6 @@ const activeStoryId = computed({
   set: (id: string) => select(customerStories.findIndex(story => story.id === id)),
 })
 
-/** Selects the previous or next story and wraps at the collection boundary.
- * @param direction Relative movement through the story collection.
- */
-function move(direction: -1 | 1): void {
-  select((activeIndex.value + direction + customerStories.length) % customerStories.length)
-}
-
 </script>
 
 <template>
@@ -80,20 +73,6 @@ function move(direction: -1 | 1): void {
               </ul>
             </div>
           </article>
-        </div>
-
-        <div class="customer-stories__controls">
-          <p aria-live="polite" aria-atomic="true">
-            <span>{{ activeIndex + 1 }}</span> / {{ customerStories.length }}
-          </p>
-          <div>
-            <button type="button" aria-label="Предыдущая история" @click="move(-1)">
-              <span aria-hidden="true">←</span>
-            </button>
-            <button type="button" aria-label="Следующая история" @click="move(1)">
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
